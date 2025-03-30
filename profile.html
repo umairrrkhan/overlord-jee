@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - F*ck JEE.</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header id="site-header">
+        <nav class="navbar">
+            <a href="index.html" class="brand">
+                <span class="brand-logo"></span>
+                F*ck JEE.
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="auth-buttons">
+                <button id="logout-btn" class="nav-button logout-btn">Sign Out</button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="profile-container">
+        <div class="profile-content">
+            <h2>Your Profile</h2>
+            <div class="profile-form">
+                <div class="form-group">
+                    <label for="profileEmail">Email</label>
+                    <input type="email" id="profileEmail" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="profileName">Name</label>
+                    <input type="text" id="profileName" placeholder="Enter your name">
+                </div>
+                <button id="saveProfileBtn" class="nav-button signup-btn">Save Changes</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="terms.html">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 F*ck JEE. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Load general scripts first -->
+    <script src="script.js"></script>
+    <!-- Load Firebase config and profile logic as a module -->
+    <script type="module">
+        import { onAuthStateChanged, signOutUser, getCurrentUser } from './firebase-config.js';
+        import { getFirestore, doc, getDoc, updateDoc, setDoc, serverTimestamp } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js';
+
+        const db = getFirestore();
+        const profileEmail = document.getElementById('profileEmail');
+        const profileName = document.getElementById('profileName');
+        const saveProfileBtn = document.getElementById('saveProfileBtn');
+        const logoutBtn = document.getElementById('logout-btn');
+        const questionsLink = document.getElementById('questions-link');
+
+        // Load user profile data
+        async function loadUserProfile(user) {
+            try {
+                // Set email from Firebase Auth
+                profileEmail.value = user.email || '';
+                
+                // Get additional data from Firestore
+                const userDoc = await getDoc(doc(db, 'users', user.uid));
+                if (userDoc.exists()) {
+                    const userData = userDoc.data();
+                    profileName.value = userData.displayName || '';
+                } else {
+                    // If document doesn't exist, create it
+                    await setDoc(doc(db, 'users', user.uid), {
+                        uid: user.uid,
+                        email: user.email,
+                        displayName: '',
+                        createdAt: serverTimestamp(),
+                        lastLogin: serverTimestamp()
+                    });
+                }
+            } catch (error) {
+                console.error('Error loading profile:', error);
+                alert('Error loading profile data. Please try again.');
+            }
+        }
+
+        // Save profile changes
+        async function saveProfile(user) {
+            try {
+                const userRef = doc(db, 'users', user.uid);
+                await updateDoc(userRef, {
+                    displayName: profileName.value,
+                    lastUpdated: serverTimestamp()
+                });
+                alert('Profile updated successfully!');
+            } catch (error) {
+                console.error('Error saving profile:', error);
+                alert('Error saving profile changes. Please try again.');
+            }
+        }
+
+        // Auth state listener
+        onAuthStateChanged((user) => {
+            if (user) {
+                loadUserProfile(user);
+            } else {
+                // Redirect to login if not authenticated
+                window.location.href = 'auth.html#login';
+            }
+        });
+
+        // Save button click handler
+        if (saveProfileBtn) {
+            saveProfileBtn.addEventListener('click', () => {
+                const user = getCurrentUser();
+                if (user) {
+                    saveProfile(user);
+                }
+            });
+        }
+
+        // Logout button click handler
+        if (logoutBtn) {
+            logoutBtn.addEventListener('click', async () => {
+                try {
+                    await signOutUser();
+                    window.location.href = 'index.html';
+                } catch (error) {
+                    console.error('Error signing out:', error);
+                    alert('Error signing out. Please try again.');
+                }
+            });
+        }
+    </script>
+</body>
+</html>

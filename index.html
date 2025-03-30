@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JEEPrep - Your JEE Exam Preparation Partner</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="index.html" class="brand">
+                <span class="brand-logo"></span>
+                F*ck JEE.
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="contact.html">Contact</a>
+                <!-- Questions link will be controlled by updateNavbarUI in script.js based on auth state -->
+                <!-- <a href="questions.html" id="questions-link" style="display: none;">Questions</a> -->
+            </div>
+            <div class="auth-buttons">
+                <a href="auth.html#login" class="nav-button login-btn">Login</a>
+                <a href="auth.html#signup" class="nav-button signup-btn">Sign Up</a>
+                <button class="nav-button logout-btn" id="logout-btn" style="display: none;">Logout</button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+             <span class="status-badge" id="status-badge-date">Didn't get banned as of [Date]</span>
+            <h1>F*ck JEE.</h1>
+            <p class="subtitle">Your ultimate AI-powered companion for mastering the JEE examination. Get comprehensive materials, targeted practice, and smart guidance.</p>
+            <div class="hero-buttons">
+                <a href="#" class="hero-button primary cta-button" id="question-bank-btn">
+                     Access Question Bank
+                </a>
+                <!-- Removed the inline script from here. Logic moved to the main module script below -->
+            </div>
+        </section>
+
+        <section class="success-stories" style="padding: 50px 5%; text-align: center;">
+            <div class="success-banner" style="margin-bottom: 40px;">
+                <img src="assets/sample.png" alt="Success Stories" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+            </div>
+            <div class="success-content" style="max-width: 800px; margin: 0 auto;">
+                <h2 style="color: var(--primary-color); margin-bottom: 20px;">Join Our Elite Success Circle</h2>
+                <p style="font-size: 1.2em; color: var(--text-color-darker); margin-bottom: 30px;">Our revolutionary AI-powered system has helped countless students achieve their dream ranks. With a proven track record of producing top 100 rankers consistently, we're not just another coaching platform - we're your gateway to IIT.</p>
+                <div class="success-metrics" style="display: flex; justify-content: space-around; margin: 40px 0;">
+                    <div class="metric">
+                        <h3 style="color: var(--primary-color);">98%</h3>
+                        <p>Success Rate</p>
+                    </div>
+                    <div class="metric">
+                        <h3 style="color: var(--primary-color);">50+</h3>
+                        <p>Top 100 Rankers</p>
+                    </div>
+                    <div class="metric">
+                        <h3 style="color: var(--primary-color);">10000+</h3>
+                        <p>Happy Students</p>
+                    </div>
+                </div>
+                <div class="cta-section" style="margin-top: 30px;">
+                    <p style="font-style: italic; color: var(--text-color-darker); margin-bottom: 20px;">"Don't just prepare, dominate the JEE with our cutting-edge AI technology"</p>
+                    <a href="auth.html#signup" class="hero-button primary" style="display: inline-block; margin-top: 20px;">Start Your Success Journey Now</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section about">
+                 <a href="index.html" class="brand">
+                    <span class="brand-logo"></span>
+                    F*ck JEE.
+                </a>
+                <p>F*ck JEE. is designed to help students ace the JEE exams...</p>
+                <div class="status-indicator">
+                    <span class="dot"></span>
+                    All systems online
+                </div>
+            </div>
+            <div class="footer-section support">
+                 <h3>Support</h3>
+                 <ul>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="terms.html">Terms of Service</a></li>
+                 </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 F*ck JEE. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- General UI Script -->
+    <script src="script.js"></script>
+
+    <!-- Firebase and Auth Logic Script -->
+    <script type="module">
+        // Import necessary Firebase functions and the auth instance
+        import { getAuth } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+        import { onAuthStateChanged, signOutUser } from './firebase-config.js';
+
+        // Get the auth instance (needed for checking currentUser)
+        const auth = getAuth();
+
+        const logoutBtn = document.getElementById('logout-btn');
+        const questionBankBtn = document.getElementById('question-bank-btn');
+
+        // --- Auth State Change Handler ---
+        onAuthStateChanged((user) => {
+            console.log('Auth State Changed:', user ? `User logged in (${user.email})` : 'User logged out');
+
+            // Update Navbar UI (Login/Signup/Logout buttons) using the function from script.js
+            if (typeof updateNavbarUI === 'function') {
+                updateNavbarUI(user);
+            } else {
+                console.error('updateNavbarUI function is not defined. Cannot update nav.');
+                // Fallback UI update (if script.js fails or updateNavbarUI is removed)
+                const isLoggedIn = !!user;
+                const loginBtnEl = document.querySelector('.login-btn');
+                const signupBtnEl = document.querySelector('.signup-btn');
+                const logoutBtnEl = document.getElementById('logout-btn');
+                if(loginBtnEl) loginBtnEl.style.display = isLoggedIn ? 'none' : 'inline-block';
+                if(signupBtnEl) signupBtnEl.style.display = isLoggedIn ? 'none' : 'inline-block';
+                if(logoutBtnEl) logoutBtnEl.style.display = isLoggedIn ? 'inline-block' : 'none';
+            }
+
+            // Update Question Bank Button behavior based on auth state
+            if (questionBankBtn) {
+                if (user) {
+                    // User is logged in - button should link to questions.html
+                    questionBankBtn.href = 'questions.html'; // Set href for semantics/right-click
+                    // The click listener below will handle the navigation
+                    console.log('Question Bank button enabled for logged-in user.');
+                } else {
+                    // User is logged out - button click should trigger login prompt
+                    questionBankBtn.href = '#'; // Set href to # as it won't navigate directly
+                    console.log('Question Bank button behavior set for logged-out user.');
+                }
+            }
+
+            // Redirect protection (already present, kept for safety)
+            if (!user && window.location.pathname.includes('questions.html')) {
+                console.log('User is not logged in. Redirecting from questions.html to login.');
+                alert('You must be logged in to view the questions page.');
+                window.location.href = 'auth.html#login';
+            }
+        });
+
+        // --- Question Bank Button Click Listener ---
+        // This listener is always active, but its behavior depends on the current auth state
+        if (questionBankBtn) {
+            questionBankBtn.addEventListener('click', (e) => {
+                // Always check the *current* auth state on click
+                const user = auth.currentUser; // Get current user status from Firebase Auth
+
+                if (!user) {
+                    // If user is NOT logged in when clicked:
+                    e.preventDefault(); // Prevent the default link behavior (going to '#')
+                    alert('Please log in first to access the Question Bank.');
+                    window.location.href = 'auth.html#login'; // Redirect to login page
+                } else {
+                    // If user IS logged in when clicked:
+                    // The default link behavior (going to questions.html set by onAuthStateChanged)
+                    // should work, but we can explicitly navigate too.
+                    // No need to preventDefault here if href is correctly set to 'questions.html'.
+                    // For robustness, we can explicitly navigate:
+                    e.preventDefault(); // Prevent default just in case href wasn't updated yet
+                    window.location.href = 'questions.html';
+                }
+            });
+        } else {
+             console.warn('Question Bank button (#question-bank-btn) not found.');
+        }
+
+
+        // --- Logout Button Handler ---
+        if (logoutBtn) {
+            logoutBtn.addEventListener('click', async () => {
+                console.log('Logout button clicked');
+                logoutBtn.disabled = true;
+                logoutBtn.textContent = 'Logging out...';
+
+                try {
+                    const result = await signOutUser();
+                    if (result.success) {
+                        console.log('Firebase sign out successful.');
+                         // Redirect to index after logout, onAuthStateChanged will handle UI update
+                         window.location.href = 'index.html';
+                    } else {
+                        console.error('Logout failed:', result.error);
+                        alert(`Logout failed: ${result.error}`);
+                        logoutBtn.disabled = false;
+                        logoutBtn.textContent = 'Logout';
+                    }
+                } catch (error) {
+                    console.error('Unexpected error during logout:', error);
+                    alert('An unexpected error occurred during logout. Please try again.');
+                    logoutBtn.disabled = false;
+                    logoutBtn.textContent = 'Logout';
+                }
+            });
+        } else {
+            console.warn('Logout button (#logout-btn) not found on this page.');
+        }
+    </script>
+</body>
+</html>
