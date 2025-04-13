@@ -3,59 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - JEEPrep</title>
+    <title>Contact Us - Hope JEE</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .contact-container {
+            text-align: center;
+            padding: 4rem 1rem;
+            max-width: 800px;
+            margin: 2rem auto;
+            background-color: var(--primary-dark);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-title {
+            color: var(--accent-color);
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-info {
+            color: var(--text-color);
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .contact-card {
+            background-color: var(--bg-color);
+            padding: 2rem;
+            border-radius: 6px;
+            margin-bottom: 2rem;
+        }
+
+        .contact-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-label {
+            color: var(--accent-color);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .contact-value {
+            color: var(--text-color);
+            font-size: 1.1rem;
+        }
+
+        .contact-value a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-value a:hover {
+            color: var(--accent-hover-color);
+        }
+    </style>
 </head>
 <body>
-    <header>
+    <header class="site-header">
         <nav class="navbar">
             <a href="index.html" class="brand">
-                <span class="brand-logo"></span>
-                Hope  JEE.
+                <span class="brand-logo">HJ</span>
+                Hope JEE
             </a>
             <div class="nav-links">
-                <a href="index.html">Home</a>
+                <a href="index.html#testimonials">Proof</a>
+                <a href="index.html#pricing">Pricing</a>
+                <a href="index.html#how-to-buy">How to Buy</a>
                 <a href="contact.html" class="active">Contact</a>
-                <a href="questions.html" id="questions-link" style="display: none;">Questions</a>
             </div>
         </nav>
     </header>
 
     <main>
-        <div class="contact-container">
-            <h1>Contact Us</h1>
-            <p class="intro">For any questions or support, please email us at:</p>
-            <p class="contact-email"><a href="mailto:allwingsai@gmail.com">allwingsai@gmail.com</a></p>
-            <p class="intro"> house number 54 , Amhat mandi road  ,sultanpur , UP</p>
-        </div>
-    </main>
-
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section about">
-                <a href="index.html" class="brand">
-                    <span class="brand-logo"></span>
-                    Hope  JEE.
-                </a>
-                <p>Hope  JEE. is designed to help students ace the JEE exams...</p>
-                <div class="status-indicator">
-                    <span class="dot"></span>
-                    All systems online
+        <div class="content-container">
+            <div class="contact-container">
+                <h1 class="contact-title">Contact Us</h1>
+                <p class="contact-info">
+                    Have questions or need support? We're here to help! Reach out to us using the information below.
+                </p>
+                <div class="contact-card">
+                    <div class="contact-item">
+                        <span class="contact-label">Email</span>
+                        <div class="contact-value">
+                            <a href="mailto:allwingsai@gmail.com">allwingsai@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-label">Address</span>
+                        <div class="contact-value">
+                            House number 54, Amhat mandi road,<br>
+                            Sultanpur, UP
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-item">
+                        <span class="contact-label">Work With Us - AllWingsAI.com</span>
+                        <div class="contact-value">
+                            <p>Interested in joining our team or collaborating with us? Visit our main company website:</p>
+                            <p style="margin-top: 1rem;">
+                                <a href="https://allwingsai.com" target="_blank" rel="noopener noreferrer">AllWingsAI.com</a>
+                            </p>
+                            <p style="margin-top: 1rem;">
+                                We're always looking for talented individuals to join our innovative AI solutions team. Explore career opportunities and partnership possibilities on our website.
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="footer-section support">
-                <h3>Support</h3>
-                <ul>
-                    <li><a href="contact.html">Contact Us</a></li>
-                    <li><a href="terms.html">Terms of Service</a></li>
-                </ul>
-            </div>
         </div>
-        <div class="footer-bottom">
-            <p>© 2025 Hope  JEE. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
+    </main>
 </body>
 </html>

@@ -1,0 +1,47 @@
+.user-profile-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.profile-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--accent-color);
+    color: var(--dark-bg);
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    transition: all 0.3s ease;
+}
+
+.profile-btn:hover {
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+}
+
+.profile-btn i {
+    font-size: 1.2rem;
+}
+
+.logout-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--dark-accent);
+    color: var(--light-text);
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.logout-btn:hover {
+    background: var(--dark-accent-hover);
+    transform: translateY(-2px);
+}
+
+.logout-btn i {
+    font-size: 1.2rem;
+}

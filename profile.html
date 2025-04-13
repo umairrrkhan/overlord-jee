@@ -7,14 +7,17 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header id="site-header">
+    <header class="site-header">
         <nav class="navbar">
             <a href="index.html" class="brand">
-                <span class="brand-logo"></span>
-                Hope JEE.
+                <span class="brand-logo">HJ</span>
+                Hope JEE
             </a>
             <div class="nav-links">
                 <a href="index.html">Home</a>
+                <a href="index.html#testimonials">Proof</a>
+                <a href="index.html#pricing">Pricing</a>
+                <a href="index.html#how-to-buy">How to Buy</a>
                 <a href="contact.html">Contact</a>
             </div>
             <div class="auth-buttons">
@@ -40,26 +43,40 @@
         </div>
     </main>
 
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="contact.html">Contact Us</a></li>
-                </ul>
+    <footer class="site-footer-bottom">
+        <div class="footer-accent-bar"></div>
+        <div class="footer-main-content">
+            <div class="footer-tagline">
+                <h2>F*CK JEE.</h2>
+                <p>Stop playing their game. Start winning yours.</p>
             </div>
-            <div class="footer-section">
-                <h3>Legal</h3>
-                <ul>
-                    <li><a href="terms.html">Terms of Service</a></li>
-                </ul>
+            <div class="footer-links-container">
+                <div class="footer-section links">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="index.html#testimonials">Proof</a></li>
+                        <li><a href="index.html#pricing">Pricing</a></li>
+                        <li><a href="index.html#how-to-buy">How to Buy</a></li>
+                        <li><a href="contact.html">Contact Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section links">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Refund Policy</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>© 2025 Hope JEE. All rights reserved.</p>
+            <p>© 2024 Hope JEE. Built to disrupt.</p>
         </div>
     </footer>
+
+    <!-- Header scroll effect -->
+    <script src="header.js"></script>
 
     <!-- Load general scripts first -->
     <script src="script.js"></script>
@@ -78,27 +95,45 @@
         // Load user profile data
         async function loadUserProfile(user) {
             try {
+                if (!user || !user.uid) {
+                    throw new Error('No authenticated user found');
+                }
+
                 // Set email from Firebase Auth
                 profileEmail.value = user.email || '';
                 
                 // Get additional data from Firestore
-                const userDoc = await getDoc(doc(db, 'users', user.uid));
+                const userRef = doc(db, 'users', user.uid);
+                const userDoc = await getDoc(userRef);
+                
                 if (userDoc.exists()) {
                     const userData = userDoc.data();
                     profileName.value = userData.displayName || '';
                 } else {
-                    // If document doesn't exist, create it
-                    await setDoc(doc(db, 'users', user.uid), {
+                    // If document doesn't exist, create it with basic profile
+                    const newUserData = {
                         uid: user.uid,
                         email: user.email,
-                        displayName: '',
+                        displayName: user.displayName || '',
+                        photoURL: user.photoURL || '',
                         createdAt: serverTimestamp(),
-                        lastLogin: serverTimestamp()
-                    });
+                        lastLogin: serverTimestamp(),
+                        profile: {
+                            accountStatus: 'active',
+                            lastUpdated: serverTimestamp()
+                        }
+                    };
+                    
+                    await setDoc(userRef, newUserData);
+                    profileName.value = newUserData.displayName;
                 }
             } catch (error) {
                 console.error('Error loading profile:', error);
-                alert('Error loading profile data. Please try again.');
+                if (error.code === 'permission-denied') {
+                    alert('Access denied. Please sign out and sign in again.');
+                } else {
+                    alert('Error loading profile: ' + error.message);
+                }
             }
         }
 

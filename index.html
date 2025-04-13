@@ -3,210 +3,312 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JEEPrep - Your JEE Exam Preparation Partner</title>
+    <!-- Security Headers -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta name="referrer" content="strict-origin">
+    <!-- Disable caching for secure pages -->
+    <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, proxy-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Hope JEE - F*ck The System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="dist/bundle.min.js" defer></script>
 </head>
 <body>
-    <header>
+    <header class="site-header">
         <nav class="navbar">
             <a href="index.html" class="brand">
-                <span class="brand-logo"></span>
-                Hope  JEE.
+                <span class="brand-logo">HJ</span> <!-- Simple Initials Logo -->
+                Hope JEE
             </a>
             <div class="nav-links">
-                <a href="index.html">Home</a>
+                <a href="#testimonials">Proof</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#how-to-buy">How to Buy</a>
                 <a href="contact.html">Contact</a>
-                <!-- Questions link will be controlled by updateNavbarUI in script.js based on auth state -->
-                <!-- <a href="questions.html" id="questions-link" style="display: none;">Questions</a> -->
             </div>
             <div class="auth-buttons">
                 <a href="auth.html#login" class="nav-button login-btn">Login</a>
-                <a href="auth.html#signup" class="nav-button signup-btn">Sign Up</a>
-                <button class="nav-button logout-btn" id="logout-btn" style="display: none;">Logout</button>
+                <a href="auth.html#signup" class="nav-button signup-btn">Sign up</a>
             </div>
         </nav>
     </header>
 
     <main>
-        <section class="hero">
-             <span class="status-badge" id="status-badge-date">Didn't get banned as of [Date]</span>
-            <h1>F*ck JEE.</h1>
-            <p class="subtitle">Your ultimate AI-powered companion for mastering the JEE examination. Get comprehensive materials, targeted practice, and smart guidance.</p>
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="update-banner">
+                <span>WARNING: Our previous domain (fuckJee.in) was banned! <a href="#pricing">Secure your access now →</a></span>
+            </div>
+            <h1 class="gradient-text animate-title">F*ck JEE.</h1>
+            <p class="subtitle animate-subtitle">An unfiltered guide to conquer the exam. Built for students tired of the bullshit.</p>
             <div class="hero-buttons">
-                <a href="#" class="hero-button primary cta-button" id="question-bank-btn">
-                     Access Question Bank
+                <!-- Main CTA Button (Yellow) -->
+                <a href="https://rzp.io/rzp/9LUqtNBe" class="cta-button primary">
+                    <i class="fa-solid fa-brain"></i> purchase now
                 </a>
-                <!-- Removed the inline script from here. Logic moved to the main module script below -->
+                <!-- Secondary Action Button (Dark) - Link to features or remove -->
+                <a href="#ai-prediction" class="cta-button secondary">
+                    <i class="fa-solid fa-circle-info"></i> See How It Works
+                </a>
             </div>
         </section>
 
-        <section class="success-stories" style="padding: 50px 5%; text-align: center;">
-            <div class="success-banner" style="margin-bottom: 40px;">
-                <img src="assets/sample.png" alt="Success Stories" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+        <!-- Success Metrics Section -->
+        <section id="success-metrics" class="content-section success-metrics-section">
+            <h2>AI-Powered Pattern Analysis</h2>
+            <p class="subtitle">Here's what the data reveals.</p>
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <h3>Topic Distribution Accuracy</h3>
+                    <div class="chart-container">
+                        <div class="bar-chart">
+                            <div class="bar" style="height: 83.21%" data-label="Physics">83.21%</div>
+                            <div class="bar" style="height: 77.65%" data-label="Chemistry">77.65%</div>
+                            <div class="bar" style="height: 74%" data-label="Mathematics">74%</div>
+                        </div>
+                    </div>
+                    <p class="metric-caption">Historical pattern match rate across subjects</p>
+                </div>
+                <div class="metric-card">
+                    <h3>AI Prediction Confidence</h3>
+                    <div class="chart-container">
+                        <div class="pie-chart">
+                            <div class="slice very-high" style="--percentage: 40%;"></div>
+                            <div class="slice high" style="--percentage: 35%;"></div>
+                            <div class="slice medium" style="--percentage: 15%;"></div>
+                            <div class="slice low" style="--percentage: 10%;"></div>
+                        </div>
+                        <div class="chart-legend">
+                            <span class="legend-item very-high">Very High (40%)</span>
+                            <span class="legend-item high">High (35%)</span>
+                            <span class="legend-item medium">Medium (15%)</span>
+                            <span class="legend-item low">Low (10%)</span>
+                        </div>
+                    </div>
+                    <p class="metric-caption">Based on 2020-2023 exam analysis</p>
+                </div>
             </div>
-            <div class="success-content" style="max-width: 800px; margin: 0 auto;">
-                <h2 style="color: var(--primary-color); margin-bottom: 20px;">Join Our Elite Success Circle</h2>
-                <p style="font-size: 1.2em; color: var(--text-color-darker); margin-bottom: 30px;">Our revolutionary AI-powered system has helped countless students achieve their dream ranks. With a proven track record of producing top 100 rankers consistently, we're not just another coaching platform - we're your gateway to IIT.</p>
-                <div class="success-metrics" style="display: flex; justify-content: space-around; margin: 40px 0;">
-                    <div class="metric">
-                        <h3 style="color: var(--primary-color);">98%</h3>
-                        <p>Success Rate</p>
+            <div class="ai-insight-box">
+                <h4><i class="fas fa-robot"></i> AI System Insight</h4>
+                <p>Using data from the past 10  years of JEE papers, our AI provides a reliable prediction of topic distribution and question patterns with 70–85% accuracy (3 year of papers). This tool is designed to empower students with focused insights, helping them prepare more efficiently and confidently</p>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="content-section testimonials-section">
+            <h2>Proof It Works</h2>
+            <p class="subtitle">Real results from students who stopped getting played by the system.</p>
+            <div class="testimonial-columns">
+                <!-- Column 1 -->
+                <div class="testimonial-column">
+                    <div class="testimonial">
+                        <p class="testimonial-text">"The study techniques helped me understand complex topics better. My preparation improved significantly."</p>
+                        <p class="testimonial-author">- Arjun Mehta, Delhi</p>
                     </div>
-                    <div class="metric">
-                        <h3 style="color: var(--primary-color);">50+</h3>
-                        <p>Top 100 Rankers</p>
+                    <div class="testimonial">
+                        <p class="testimonial-text">"Found a better way to approach my studies. The strategies really made a difference."</p>
+                        <p class="testimonial-author">- Priya Sharma, Mumbai</p>
                     </div>
-                    <div class="metric">
-                        <h3 style="color: var(--primary-color);">10000+</h3>
-                        <p>Happy Students</p>
+                    <div class="testimonial">
+                        <p class="testimonial-text">"The study methods are practical and effective. Helped me stay focused and motivated."</p>
+                        <p class="testimonial-author">- Siddharth Kapoor, Bangalore</p>
+                    </div>
+                    <!-- Duplicate for seamless scroll -->
+                    <div class="testimonial">
+                        <p class="testimonial-text">"The study techniques helped me understand complex topics better. My preparation improved significantly."</p>
+                        <p class="testimonial-author">- Arjun Mehta, Delhi</p>
+                    </div>
+                    <div class="testimonial">
+                        <p class="testimonial-text">"Found a better way to approach my studies. The strategies really made a difference."</p>
+                        <p class="testimonial-author">- Priya Sharma, Mumbai</p>
+                    </div>
+                    <div class="testimonial">
+                        <p class="testimonial-text">"The study methods are practical and effective. Helped me stay focused and motivated."</p>
+                        <p class="testimonial-author">- Siddharth Kapoor, Bangalore</p>
                     </div>
                 </div>
-                <div class="cta-section" style="margin-top: 30px;">
-                    <p style="font-style: italic; color: var(--text-color-darker); margin-bottom: 20px;">"Don't just prepare, dominate the JEE with our cutting-edge AI technology"</p>
-                    <a href="auth.html#signup" class="hero-button primary" style="display: inline-block; margin-top: 20px;">Start Your Success Journey Now</a>
+                <!-- Column 2 -->
+                <div class="testimonial-column testimonial-column-reverse"> <!-- Add reverse class -->
+                    <div class="testimonial">
+                        <p class="testimonial-text">"The study plan helped me organize my time better. I'm more confident in my preparation now."</p>
+                        <p class="testimonial-author">- Rohit Agarwal, Pune</p>
+                    </div>
+                    <div class="testimonial">
+                        <p class="testimonial-text">"Great tips for managing study time and staying motivated throughout the preparation."</p>
+                        <p class="testimonial-author">- Ananya Desai, Chennai</p>
+                    </div>
+                    <div class="testimonial">
+                        <p class="testimonial-text">"The practice methods really helped improve my problem-solving skills. Very effective approach."</p>
+                        <p class="testimonial-author">- Karthik Nair, Kochi</p>
+                    </div>
+                    <!-- Duplicate for seamless scroll -->
+                    <div class="testimonial">
+                        <p class="testimonial-text">"The study plan helped me organize my time better. I'm more confident in my preparation now."</p>
+                        <p class="testimonial-author">- Rohit Agarwal, Pune</p>
+                    </div>
+                    <div class="testimonial">
+                        <p class="testimonial-text">"Great tips for managing study time and staying motivated throughout the preparation."</p>
+                        <p class="testimonial-author">- Ananya Desai, Chennai</p>
+                    </div>
+                    <div class="testimonial">
+                        <p class="testimonial-text">"The practice methods really helped improve my problem-solving skills. Very effective approach."</p>
+                        <p class="testimonial-author">- Karthik Nair, Kochi</p>
+                    </div>
+                </div>
+                <!-- Column 3 -->
+                <div class="testimonial-column">
+                    <div class="testimonial">
+                        <p class="testimonial-text">"The study techniques are easy to follow and implement. Saw improvement in my practice test scores."</p>
+                        <p class="testimonial-author">- Rajesh Malhotra, Jaipur</p>
+                    </div>
+                    <div class="testimonial">
+                        <p class="testimonial-text">"Learning became more enjoyable with these methods. The guidance really helps."</p>
+                        <p class="testimonial-author">- Kavita Iyer, Hyderabad</p>
+                    </div>
+                    <div class="testimonial">
+                        <p class="testimonial-text">"The preparation strategies are well-thought-out. They helped me study more efficiently."</p>
+                        <p class="testimonial-author">- Vikram Reddy, Vizag</p>
+                    </div>
+                    <!-- Duplicate for seamless scroll -->
+                    <div class="testimonial">
+                        <p class="testimonial-text">"The study techniques are easy to follow and implement. Saw improvement in my practice test scores."</p>
+                        <p class="testimonial-author">- Rajesh Malhotra, Jaipur</p>
+                    </div>
+                    <div class="testimonial">
+                        <p class="testimonial-text">"Learning became more enjoyable with these methods. The guidance really helps."</p>
+                        <p class="testimonial-author">- Kavita Iyer, Hyderabad</p>
+                    </div>
+                    <div class="testimonial">
+                        <p class="testimonial-text">"The preparation strategies are well-thought-out. They helped me study more efficiently."</p>
+                        <p class="testimonial-author">- Vikram Reddy, Vizag</p>
+                    </div>
                 </div>
             </div>
         </section>
+
+        <!-- Pricing Section -->
+        <section id="pricing" class="content-section pricing-section">
+            <h2>Get the ai study metarial</h2>
+            <p class="subtitle">One-time access to our AI-powered pattern recognition system. Stop guessing, start targeting.</p>
+            <div class="price-card">
+                <div class="price-amount">₹999</div>
+                <p class="price-desc">Includes AI Pattern Guide + Future Updates</p>
+                <div class="data-insights">
+                    <div class="insight-chart">
+                        <svg width="200" height="100" viewBox="0 0 200 100">
+                            <rect x="50" y="30" width="30" height="50" fill="#FFD700" />
+                            <rect x="90" y="10" width="30" height="70" fill="#FFD700" />
+                            <rect x="130" y="25" width="30" height="55" fill="#FFD700" />
+                            <text x="100" y="95" text-anchor="middle" fill="#666" style="font-size: 10px">Topic Distribution*</text>
+                        </svg>
+                    </div>
+                </div>
+                <ul class="price-features">
+                    <li><i class="fas fa-brain"></i> AI-Identified Question Patterns* (85% Historical Match Rate)</li>
+                    <li><i class="fas fa-chart-line"></i> High-Probability Topic Predictions* (Based on 2020-2023 Analysis)</li>
+                    <li><i class="fas fa-bullseye"></i> Lab-Tested Pattern Success Rate* (70-85% Topic Coverage)</li>
+                    <li><i class="fas fa-lightbulb"></i> Strategic Approach Framework with Cross-Topic Integration</li>
+                    <li><i class="fas fa-bullseye"></i>all these questin has higher sucess rate*</li>
+                    <li><i class="fas fa-puzzle-piece"></i> Pretty sure this is gonna be a lifesaver for all the students slowly losing brain cells to this beautiful disaster of a system.</li>
+                </ul>
+                <a href="https://rzp.io/rzp/9LUqtNBe" class="cta-button primary price-button">Buy Now </a>
+            </div>
+        </section>
+
+        <!-- How to Buy Section -->
+        <section id="how-to-buy" class="content-section how-to-buy-section">
+            <h2>Unlock The product: <span>3 Simple Steps</span></h2>
+            <p class="subtitle">Get instant access to the guide that exposes the system. No gatekeepers, no BS.</p>
+            
+            <div class="steps-container">
+                <!-- Step 1 -->
+                <div class="step-item step-1">
+                    <div class="step-image-wrapper">
+                        <img src="images/recording 1.gif" alt="Step 1: Click the Buy Button" class="step-image">
+                        <div class="step-number">1</div>
+                    </div>
+                    <div class="step-content">
+                        <h3>Click "Buy Now"</h3>
+                        <p>Hit the big yellow button. It takes you straight to our secure (but kinda underground feeling) payment gateway.</p>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="step-item step-2">
+                     <div class="step-image-wrapper">
+                        <img src="images/recording 2.gif" alt="Step 2: Secure Payment" class="step-image">
+                         <div class="step-number">2</div>
+                    </div>
+                    <div class="step-content">
+                        <h3>Quick Payment</h3>
+                        <p>Enter your details. We accept UPI, cards, etc. Fast, secure, and discreet. Your bank won't know you're buying forbidden knowledge 😉.</p>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="step-item step-3">
+                     <div class="step-image-wrapper">
+                        <img src="images/recording 3.gif" alt="Step 3: Instant Download" class="step-image">
+                         <div class="step-number">3</div>
+                    </div>
+                    <div class="step-content">
+                        <h3>Instant Access</h3>
+                        <p>Check your email (or get an instant download link). The full PDF playbook is yours. Immediately. Start exploiting the system tonight.</p>
+                    </div>
+                </div>
+            </div>
+             <a href="https://rzp.io/rzp/9LUqtNBe" class="cta-button primary final-cta">Get the study material </a>
+        </section>
+
     </main>
 
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section about">
-                 <a href="index.html" class="brand">
-                    <span class="brand-logo"></span>
-                    Hope  JEE.
-                </a>
-                <p>Hope  JEE. is designed to help students ace the JEE exams...</p>
-                <div class="status-indicator">
-                    <span class="dot"></span>
-                    All systems online
-                </div>
+    <footer class="site-footer-bottom">
+        <div class="footer-accent-bar"></div> <!-- New accent bar -->
+        <div class="footer-main-content">
+            <div class="footer-tagline">
+                <h2>F*CK JEE.</h2>
+                <p>Stop playing their game. Start winning yours.</p>
             </div>
-            <div class="footer-section support">
-                 <h3>Support</h3>
-                 <ul>
-                    <li><a href="contact.html">Contact Us</a></li>
-                    <li><a href="terms.html">Terms of Service</a></li>
-                 </ul>
+            <div class="footer-links-container">
+                <div class="footer-section links">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#testimonials">Proof</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#how-to-buy">How to Buy</a></li>
+                        <li><a href="contact.html">Contact Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section links">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>© 2025 Hope JEE. All rights reserved.</p>
+            <p>© 2024 Hope JEE. Built to disrupt.</p>
         </div>
     </footer>
 
-    <!-- General UI Script -->
-    <script src="script.js"></script>
+    <!-- Optional Floating Chat Button -->
+    <!-- <a href="contact.html" class="chat-button">
+        <i class="fas fa-comment-dots"></i>
+    </a> -->
 
-    <!-- Firebase and Auth Logic Script -->
-    <script type="module">
-        // Import necessary Firebase functions and the auth instance
-        import { getAuth } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
-        import { onAuthStateChanged, signOutUser } from './firebase-config.js';
-
-        // Get the auth instance (needed for checking currentUser)
-        const auth = getAuth();
-
-        const logoutBtn = document.getElementById('logout-btn');
-        const questionBankBtn = document.getElementById('question-bank-btn');
-
-        // --- Auth State Change Handler ---
-        onAuthStateChanged((user) => {
-            console.log('Auth State Changed:', user ? `User logged in (${user.email})` : 'User logged out');
-
-            // Update Navbar UI (Login/Signup/Logout buttons) using the function from script.js
-            if (typeof updateNavbarUI === 'function') {
-                updateNavbarUI(user);
-            } else {
-                console.error('updateNavbarUI function is not defined. Cannot update nav.');
-                // Fallback UI update (if script.js fails or updateNavbarUI is removed)
-                const isLoggedIn = !!user;
-                const loginBtnEl = document.querySelector('.login-btn');
-                const signupBtnEl = document.querySelector('.signup-btn');
-                const logoutBtnEl = document.getElementById('logout-btn');
-                if(loginBtnEl) loginBtnEl.style.display = isLoggedIn ? 'none' : 'inline-block';
-                if(signupBtnEl) signupBtnEl.style.display = isLoggedIn ? 'none' : 'inline-block';
-                if(logoutBtnEl) logoutBtnEl.style.display = isLoggedIn ? 'inline-block' : 'none';
-            }
-
-            // Update Question Bank Button behavior based on auth state
-            if (questionBankBtn) {
-                if (user) {
-                    // User is logged in - button should link to questions.html
-                    questionBankBtn.href = 'questions.html'; // Set href for semantics/right-click
-                    // The click listener below will handle the navigation
-                    console.log('Question Bank button enabled for logged-in user.');
-                } else {
-                    // User is logged out - button click should trigger login prompt
-                    questionBankBtn.href = '#'; // Set href to # as it won't navigate directly
-                    console.log('Question Bank button behavior set for logged-out user.');
-                }
-            }
-
-            // Redirect protection (already present, kept for safety)
-            if (!user && window.location.pathname.includes('questions.html')) {
-                console.log('User is not logged in. Redirecting from questions.html to login.');
-                alert('You must be logged in to view the questions page.');
-                window.location.href = 'auth.html#login';
-            }
-        });
-
-        // --- Question Bank Button Click Listener ---
-        // This listener is always active, but its behavior depends on the current auth state
-        if (questionBankBtn) {
-            questionBankBtn.addEventListener('click', (e) => {
-                // Always check the *current* auth state on click
-                const user = auth.currentUser; // Get current user status from Firebase Auth
-
-                if (!user) {
-                    // If user is NOT logged in when clicked:
-                    e.preventDefault(); // Prevent the default link behavior (going to '#')
-                    alert('Please log in first to access the Question Bank.');
-                    window.location.href = 'auth.html#login'; // Redirect to login page
-                } else {
-                    // If user IS logged in when clicked:
-                    // The default link behavior (going to questions.html set by onAuthStateChanged)
-                    // should work, but we can explicitly navigate too.
-                    // No need to preventDefault here if href is correctly set to 'questions.html'.
-                    // For robustness, we can explicitly navigate:
-                    e.preventDefault(); // Prevent default just in case href wasn't updated yet
-                    window.location.href = 'questions.html';
-                }
-            });
-        } else {
-             console.warn('Question Bank button (#question-bank-btn) not found.');
-        }
-
-
-        // --- Logout Button Handler ---
-        if (logoutBtn) {
-            logoutBtn.addEventListener('click', async () => {
-                console.log('Logout button clicked');
-                logoutBtn.disabled = true;
-                logoutBtn.textContent = 'Logging out...';
-
-                try {
-                    const result = await signOutUser();
-                    if (result.success) {
-                        console.log('Firebase sign out successful.');
-                         // Redirect to index after logout, onAuthStateChanged will handle UI update
-                         window.location.href = 'index.html';
-                    } else {
-                        console.error('Logout failed:', result.error);
-                        alert(`Logout failed: ${result.error}`);
-                        logoutBtn.disabled = false;
-                        logoutBtn.textContent = 'Logout';
-                    }
-                } catch (error) {
-                    console.error('Unexpected error during logout:', error);
-                    alert('An unexpected error occurred during logout. Please try again.');
-                    logoutBtn.disabled = false;
-                    logoutBtn.textContent = 'Logout';
-                }
-            });
-        } else {
-            console.warn('Logout button (#logout-btn) not found on this page.');
-        }
-    </script>
+    <!-- Firebase Authentication -->
+    <script type="module" src="auth.js"></script>
+    <!-- Header scroll effect -->
+    <script src="header.js"></script>
+    <!-- Testimonial slider animation -->
+    <script src="testimonial-slider.js"></script>
 </body>
 </html>

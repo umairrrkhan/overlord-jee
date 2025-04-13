@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You - Hope JEE</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .thank-you-container {
+            text-align: center;
+            padding: 4rem 1rem;
+            max-width: 800px;
+            margin: 2rem auto;
+            background-color: var(--primary-dark);
+            border-radius: 8px;
+        }
+
+        .thank-you-title {
+            color: var(--accent-color);
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .thank-you-message {
+            color: var(--text-color);
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .download-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+            padding: 1rem 2rem;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .download-button:hover {
+            background-color: var(--accent-hover-color);
+        }
+
+        .instructions {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background-color: var(--bg-color);
+            border-radius: 6px;
+            text-align: left;
+        }
+
+        .instructions h3 {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .instructions ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .instructions li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .instructions li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+        }
+    </style>
+</head>
+<body>
+
+    <main>
+        <div class="content-container">
+            <div class="thank-you-container">
+                <h1 class="thank-you-title">Thank You for Your Purchase!</h1>
+                <p class="thank-you-message">
+                    Your payment has been successfully processed. You can now download your  PDF.
+                </p>
+                <a href="pdf/hopeJee .pdf" class="download-button" download="JEE-Success-Guide.pdf">
+                    Download Your PDF Guide
+                </a>
+                <div class="instructions">
+                    <h3>Next Steps:</h3>
+                    <ul>
+                        <li>Click the download button above to get your PDF guide</li>
+                        <li>Save the file to your device for offline access</li>
+                        <li>Open the PDF with your preferred PDF reader</li>
+                        <li>Start your enhanced JEE preparation journey!</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+</body>
+</html>

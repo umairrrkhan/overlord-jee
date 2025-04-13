@@ -1,0 +1,23 @@
+{
+  "name": "fuckjee",
+  "version": "1.0.0",
+  "description": "Secure web application",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "build": "uglifyjs auth.js script.js header.js firebase-config.js -c -m -o dist/bundle.min.js --source-map",
+    "postbuild": "node -e \"require('fs').writeFileSync('dist/bundle.min.js', require('fs').readFileSync('dist/bundle.min.js', 'utf8').replace(/console\\.log.*?\\);/g, ''));\""
+  },
+  "dependencies": {
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-rate-limit": "^6.7.0",
+    "helmet": "^6.1.5",
+    "razorpay": "^2.9.6"
+  },
+  "devDependencies": {
+    "uglify-js": "^3.17.4"
+  }
+}
