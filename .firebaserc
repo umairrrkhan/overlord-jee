@@ -1,5 +1,15 @@
 {
   "projects": {
     "default": "awesome-9ddc4"
-  }
+  },
+  "targets": {
+    "awesome-9ddc4": {
+      "hosting": {
+        "live": [
+          "awesome-9ddc4"
+        ]
+      }
+    }
+  },
+  "etags": {}
 }
