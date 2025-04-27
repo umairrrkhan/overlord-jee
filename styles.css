@@ -451,6 +451,42 @@ h3 { font-size: 1.25rem; font-weight: 600;}
     line-height: 1.7;
 }
 
+/* Hero Highlights Section */
+.hero-highlights {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background-color: rgba(0, 0, 0, 0.02); /* Very subtle background */
+    border-left: 4px solid var(--accent-color);
+    border-radius: 4px;
+}
+
+.hero-highlights p {
+    margin-bottom: 0.75rem; /* Space between paragraphs */
+    font-size: 1.05rem; /* Slightly larger text */
+    color: var(--text-color-darker); /* Use medium grey */
+    line-height: 1.5;
+}
+
+.hero-highlights p:last-child {
+    margin-bottom: 0;
+}
+
+.hero-highlights strong {
+    color: var(--text-color-light); /* Black for emphasis */
+    font-weight: 600;
+}
+
+/* Responsive adjustments for hero highlights if needed */
+@media (max-width: 768px) {
+    .hero-highlights {
+        padding: 0.8rem;
+        margin-top: 1rem;
+    }
+    .hero-highlights p {
+        font-size: 1rem;
+    }
+}
+
 .hero-buttons {
     display: flex;
     gap: 1rem;
@@ -567,21 +603,32 @@ h3 { font-size: 1.25rem; font-weight: 600;}
 
 .metric-card {
     background: var(--bg-color);
-    border-radius: 12px;
-    padding: 2rem;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 16px; /* Slightly more rounded */
+    padding: 2rem 2.5rem; /* Adjust padding */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08); /* Softer shadow */
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem; /* Reduced gap */
+    border: 1px solid var(--border-color);
 }
 
 .metric-card h3 {
-    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
     color: var(--text-color-light);
+    margin: 0;
 }
 
 .chart-container {
-    height: 250px;
-    margin: 1.5rem 0;
+    width: 100%;
+    max-width: 280px; /* Slightly smaller chart */
+    aspect-ratio: 1;
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem; /* Add space below chart */
 }
 
 /* Bar Chart Styles */
@@ -591,6 +638,7 @@ h3 { font-size: 1.25rem; font-weight: 600;}
     justify-content: space-around;
     align-items: flex-end;
     padding: 0 1rem;
+    width: 100%;
 }
 
 .bar {
@@ -609,78 +657,108 @@ h3 { font-size: 1.25rem; font-weight: 600;}
     transform: translateX(-50%);
     font-size: 0.9rem;
     color: var(--text-color-darker);
+    white-space: nowrap;
 }
 
-/* Pie Chart Styles */
+/* Pie Chart Styles using conic-gradient */
 .pie-chart {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    position: relative;
-    margin: 0 auto;
-}
-
-.slice {
-    position: absolute;
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    clip-path: polygon(50% 50%, 100% 0, 100% 100%);
-    transform-origin: 50% 50%;
+    position: relative;
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.08);
+    /* Define percentages here - adjust as needed */
+    --p-very-high: 40%;
+    --p-high: 35%;
+    --p-medium: 15%;
+    --p-low: 10%;
+    /* Calculate cumulative percentages */
+    --c-very-high: var(--p-very-high);
+    --c-high: calc(var(--p-very-high) + var(--p-high));
+    --c-medium: calc(var(--p-very-high) + var(--p-high) + var(--p-medium));
+    /* Define colors */
+    --color-very-high: var(--accent-color); /* Yellow */
+    --color-high: #ffd700; /* Gold */
+    --color-medium: #ffa500; /* Orange */
+    --color-low: #ff6b6b; /* Light Red */
+
+    background: conic-gradient(
+        var(--color-very-high) 0% var(--c-very-high),
+        var(--color-high) var(--c-very-high) var(--c-high),
+        var(--color-medium) var(--c-high) var(--c-medium),
+        var(--color-low) var(--c-medium) 100%
+    );
+    /* Optional: Add a small inner circle for a donut effect */
+    /* display: flex; */
+    /* align-items: center; */
+    /* justify-content: center; */
 }
 
-.slice.very-high {
-    background: var(--accent-color);
-    transform: rotate(0deg);
-}
+/* Remove old slice styles if they exist */
+.slice { display: none; }
 
-.slice.high {
-    background: #ffd700;
-    transform: rotate(126deg);
-}
-
-.slice.medium {
-    background: #ffa500;
-    transform: rotate(234deg);
-}
-
-.slice.low {
-    background: #ff6b6b;
-    transform: rotate(324deg);
-}
+/* Optional: Donut hole style */
+/* .pie-chart::after {
+    content: '';
+    position: absolute;
+    width: 50%; 
+    height: 50%;
+    background: var(--bg-color);
+    border-radius: 50%;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+} */
 
 .chart-legend {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    margin-top: 2rem;
-    font-size: 0.7rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.8rem 1.5rem; /* Adjust row and column gap */
+    margin-top: 1rem; /* Add space above legend */
+    width: 100%;
+    max-width: 300px; /* Slightly narrower legend */
 }
 
 .legend-item {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.6rem; /* Slightly smaller gap */
     color: var(--text-color-darker);
+    font-size: 0.9rem; /* Slightly larger font */
+    padding: 0.4rem 0.6rem; /* Adjust padding */
+    background: transparent; /* Remove background */
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    justify-content: flex-start; /* Align items left */
+}
+
+.legend-item:hover {
+    background: rgba(0, 0, 0, 0.04);
+    transform: translateY(-1px);
 }
 
 .legend-item::before {
     content: '';
-    width: 12px;
+    width: 12px; /* Smaller indicator */
     height: 12px;
-    border-radius: 3px;
+    border-radius: 3px; /* Slightly less rounded */
     display: inline-block;
+    flex-shrink: 0;
+    border: 1px solid rgba(0,0,0,0.1); /* Subtle border */
 }
 
-.legend-item.very-high::before { background: var(--accent-color); }
-.legend-item.high::before { background: #ffd700; }
-.legend-item.medium::before { background: #ffa500; }
-.legend-item.low::before { background: #ff6b6b; }
+.legend-item.very-high::before { background: var(--color-very-high); }
+.legend-item.high::before { background: var(--color-high); }
+.legend-item.medium::before { background: var(--color-medium); }
+.legend-item.low::before { background: var(--color-low); }
 
 .metric-caption {
     color: var(--text-color-darker);
     font-size: 0.9rem;
-    margin-top: 1rem;
+    margin: 0;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.02);
+    border-radius: 8px;
+    width: 100%;
+    max-width: 320px;
 }
 
 .proof-stats {
