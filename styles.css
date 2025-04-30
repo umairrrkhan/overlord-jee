@@ -1264,6 +1264,171 @@ h3 { font-size: 1.25rem; font-weight: 600;}
     }
 }
 
+/* --- Why HopeJEE Works Section --- */
+.why-works-section {
+    background-color: var(--primary-light); /* Use light background */
+    padding: 3rem 1.5rem; /* Adjust padding */
+    border-radius: 12px;
+    margin-bottom: 2rem; /* Add space below */
+}
+
+.why-works-section h2 {
+    color: var(--text-color-light); /* Darker heading */
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.why-works-section .subtitle {
+    text-align: center;
+    color: var(--text-color-darker);
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.why-works-section ul {
+    list-style: none; /* Remove default bullets */
+    padding-left: 0;
+    max-width: 500px;
+    margin: 0 auto 2rem auto; /* Center list */
+}
+
+.why-works-section li {
+    background-color: var(--bg-color); /* White background for list items */
+    padding: 0.8rem 1.2rem;
+    margin-bottom: 0.8rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: var(--text-color);
+}
+
+.why-works-section li::before {
+    content: '✓'; /* Checkmark icon */
+    color: var(--accent-color); /* Accent color for icon */
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.why-works-section p:last-of-type {
+    text-align: center;
+    font-weight: 500;
+    color: var(--text-color-darker);
+}
+
+/* --- FAQ Section --- */
+.faq-section {
+    background-color: var(--bg-color); /* Changed to white */
+    padding: 4rem 2rem;
+    max-width: 900px; /* Limit width */
+    margin: 4rem auto; /* Center and add margin */
+    border-radius: 12px;
+    /* Removed background color, relying on body bg */
+}
+
+.faq-section h2 {
+    color: var(--text-color-light);
+    text-align: center;
+    margin-bottom: 0.5rem; /* Reduced margin */
+}
+
+.faq-section .subtitle {
+    text-align: center;
+    color: var(--text-color-darker);
+    margin-bottom: 3rem;
+    font-size: 1.1rem;
+}
+
+.faq-accordion {
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden; /* Clip inner borders */
+}
+
+.faq-item-new {
+    border-bottom: 1px solid var(--border-color);
+}
+
+.faq-item-new:last-child {
+    border-bottom: none;
+}
+
+.faq-question {
+    background-color: var(--bg-color);
+    color: var(--text-color-light);
+    cursor: pointer;
+    padding: 1.25rem 1.5rem; /* Adjusted padding */
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 1.05rem; /* Slightly larger font */
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--font-primary);
+}
+
+.faq-question:hover {
+    background-color: var(--primary-light); /* Subtle hover */
+}
+
+.faq-question i {
+    transition: transform 0.3s ease;
+    color: var(--text-color-darker);
+    font-size: 0.9rem;
+}
+
+.faq-item-new.active .faq-question i {
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    padding: 0 1.5rem; /* Only horizontal padding initially */
+    background-color: var(--bg-color);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, padding 0.3s ease-out; /* Smooth transition */
+}
+
+.faq-answer p {
+    color: var(--text-color-darker);
+    font-size: 1rem;
+    line-height: 1.6;
+    padding-bottom: 1.5rem; /* Add padding only when open */
+    margin: 0;
+}
+
+/* Style for when the answer is shown */
+.faq-item-new.active .faq-answer {
+    max-height: 300px; /* Adjust as needed for content */
+    padding: 1rem 1.5rem 1.5rem; /* Add top padding when open */
+}
+
+.faq-final-cta {
+    /* Keep existing styles or adjust as needed */
+    background-color: var(--secondary-light);
+    padding: 2rem;
+    border-radius: 8px;
+    margin-top: 3rem;
+}
+
+.faq-final-cta h3 {
+    color: var(--text-color-light);
+    margin-bottom: 0.5rem;
+}
+
+.faq-final-cta p {
+    color: var(--text-color-darker);
+    margin-bottom: 1.5rem;
+}
+
 /* --- Footer --- */
 .site-footer-bottom {
     background-color: var(--bg-color); /* White footer bg */
