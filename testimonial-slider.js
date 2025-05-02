@@ -5,8 +5,22 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-    // No initialization needed for pure CSS animation
-    console.log("Testimonial CSS animations active.");
+    const testimonials = document.querySelectorAll('.testimonial');
+    const columns = document.querySelectorAll('.testimonial-column');
+    
+    // Calculate equal distribution
+    const perColumn = Math.ceil(testimonials.length / columns.length);
+    
+    // Distribute testimonials evenly
+    columns.forEach((col, i) => {
+        col.innerHTML = '';
+        const start = i * perColumn;
+        const end = Math.min(start + perColumn, testimonials.length);
+        
+        for (let j = start; j < end; j++) {
+            col.appendChild(testimonials[j]);
+        }
+    });
 });
 
 // function initTestimonialAnimation() { ... } // Removed old function
