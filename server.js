@@ -4,6 +4,7 @@ const helmet = require('helmet');
 const compression = require('compression');
 const rateLimit = require('express-rate-limit');
 const path = require('path');
+const firebaseConfigRouter = require('./api/firebase-config'); // Import the router
 
 const app = express();
 

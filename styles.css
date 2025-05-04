@@ -177,6 +177,8 @@ h3 { font-size: 1.25rem; font-weight: 600;}
     padding: 0 1rem;
 }
 
+
+
 /* --- Header --- */
 .site-header {
     position: sticky;
@@ -1907,3 +1909,139 @@ h3 { font-size: 1.25rem; font-weight: 600;}
     background-color: var(--accent-hover-color);
     transform: translateY(-2px);
 }
+
+/* Countdown Warning Section - Redesigned for Maximum Impact */
+.countdown-warning-section {
+    background: linear-gradient(135deg, #ff3a3a 0%, #ff7a3a 100%); /* Urgent gradient */
+    color: white;
+    padding: 0.75rem 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    text-align: center;
+    width: 100%;
+    box-shadow: 0 4px 12px rgba(255, 58, 58, 0.3);
+    position: relative;
+    overflow: hidden;
+    animation: slideDownBanner 0.5s ease-out forwards, pulse 2s infinite;
+    opacity: 0;
+    transform: translateY(-100%);
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(255, 58, 58, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(255, 58, 58, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 58, 58, 0); }
+}
+
+@keyframes slideDownBanner {
+    from {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.countdown-container {
+    /* Styles for the timer part */
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.countdown-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin: 0;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    display: none; /* Hide the 'LIMITED TIME' title for brevity */
+}
+
+.timer-display {
+    display: flex;
+    gap: 0.5rem; /* Reduced gap */
+    align-items: baseline;
+}
+
+.time-unit {
+    display: flex;
+    flex-direction: row; /* Display horizontally */
+    align-items: baseline;
+    gap: 0.25rem;
+}
+
+.time-value {
+    font-size: 1.1rem; /* Smaller font size */
+    font-weight: 700;
+    color: var(--accent-text-color);
+    line-height: 1;
+}
+
+.time-label {
+    font-size: 0.7rem; /* Smaller font size */
+    color: var(--accent-text-color);
+    text-transform: uppercase;
+    /* margin-top: 0; Remove top margin */
+}
+
+.time-separator {
+    font-size: 1rem; /* Smaller font size */
+    color: var(--accent-text-color);
+    line-height: 1;
+    /* padding-bottom: 0; Remove padding */
+}
+
+.warning-text-block {
+    /* max-width: 600px; Remove max-width */
+    background-color: transparent; /* Make background transparent */
+    padding: 0; /* Remove padding */
+    /* border-radius: 8px; Remove border-radius */
+    box-shadow: none; /* Remove box-shadow */
+    text-align: left;
+    color: var(--accent-text-color);
+    line-height: 1.4; /* Adjust line height */
+    font-size: 0.9rem; /* Adjust font size */
+}
+
+.warning-text-block p {
+    margin-bottom: 1rem;
+}
+
+.warning-text-block p:last-child {
+    margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+    .countdown-warning-section {
+        flex-direction: column; /* Stack vertically on smaller screens */
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        text-align: center;
+    }
+    .warning-text-block {
+        text-align: center;
+    }
+    .time-value {
+        font-size: 1rem;
+    }
+    .time-separator {
+        font-size: 0.9rem;
+    }
+    .time-label {
+        font-size: 0.65rem;
+    }
+    .timer-display {
+        gap: 0.4rem;
+    }
+}
+
+/* Remove redundant smaller screen adjustments as 768px covers it */
+/* @media (max-width: 480px) { ... } */
