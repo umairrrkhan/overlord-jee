@@ -54,42 +54,23 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="dist/bundle.min.js" defer></script>
     <script src="faq.js" defer></script>
-    <script src="countdown.js" defer></script>
+    <script src="modal.js" defer></script>
     
 </head>
 <body>
-    <!-- Countdown Warning Section -->
-    <section class="countdown-warning-section">
-        <div class="countdown-container">
-            <h2 class="countdown-title">LIMITED TIME</h2>
-            <div id="countdown-timer" class="timer-display">
-                <div class="time-unit">
-                    <span id="days" class="time-value">00</span>
-                    <span class="time-label">Days</span>
-                </div>
-                <div class="time-separator">:</div>
-                <div class="time-unit">
-                    <span id="hours" class="time-value">00</span>
-                    <span class="time-label">Hours</span>
-                </div>
-                <div class="time-separator">:</div>
-                <div class="time-unit">
-                    <span id="minutes" class="time-value">00</span>
-                    <span class="time-label">Minutes</span>
-                </div>
-                <div class="time-separator">:</div>
-                <div class="time-unit">
-                    <span id="seconds" class="time-value">00</span>
-                    <span class="time-label">Seconds</span>
-                </div>
-            </div>
+    <!-- Shutdown Warning Modal -->
+    <div id="shutdown-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" style="color: red; font-size: 24px;">&times;</span>
+            <h3>⚠️ This website might get shut down soon.</h3>
+            <p>Our last project  <strong>fuckjee.in</strong>  was taken down for “violating the system.” Why? Because we exposed the truth: students are paying ₹2 lakh+ to coaching mafias, and still failing.</p>
+            <p>This isn’t cheating. It’s machine learning.</p>
+            <p>We built an AI that predicts real, high-probability JEE questions  and they hate it. They’re scared because it works.</p>
+            <p> We are only selling 1000 more copies. Over 1,400 students already downloaded the JEE Conqueror PDF. After that, this site shuts down  forever.</p>
         </div>
-        <div class="warning-text-block">
-            <p>⚠️ Site shutting down in 10 days due to AI predictions.</p>
-            <p>1400+ students downloaded. 1000 copies left.</p>
-            <p>👇 Get the JEE Conqueror PDF now!</p>
-        </div>
-    </section>
+    </div>
+
+
 
     <header class="site-header">
         <nav class="navbar">
@@ -707,5 +688,6 @@
     <script src="testimonial-slider.js"></script>
     <!-- Chat widget -->
     <script src="chat.js"></script>
+
 </body>
 </html>

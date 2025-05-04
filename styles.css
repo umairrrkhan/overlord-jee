@@ -5,6 +5,41 @@
     box-sizing: border-box;
 }
 
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 2rem;
+    border-radius: 8px;
+    max-width: 600px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    position: relative;
+}
+
+.close-button {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-button:hover {
+    color: #f00;
+}
+
 :root {
     /* Light Theme Base */
     --bg-color: #ffffff; /* White */
@@ -1431,6 +1466,89 @@ h3 { font-size: 1.25rem; font-weight: 600;}
     margin-bottom: 1.5rem;
 }
 
+/* --- Modal Styles --- */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 2000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    animation: fadeIn 0.3s ease-out;
+}
+
+.modal-content {
+    background-color: #ffffff; /* White background */
+    color: var(--text-color);
+    margin: 10% auto; /* 10% from the top and centered */
+    padding: 2.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    width: 80%; /* Could be more or less, depending on screen size */
+    max-width: 600px; /* Maximum width */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    position: relative;
+    animation: slideIn 0.4s ease-out;
+}
+
+.modal-content h2 {
+    color: var(--text-color-light);
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.8rem;
+}
+
+.modal-content p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+.modal-content p:last-child {
+    margin-bottom: 0;
+}
+
+.modal-content strong {
+    color: #78350f; /* Dark amber */
+    font-weight: 600;
+}
+
+.close-button {
+    color: #aaa;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    transition: color 0.2s ease;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #333;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Modal Animations */
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes slideIn {
+    from {transform: translateY(-50px); opacity: 0;}
+    to {transform: translateY(0); opacity: 1;}
+}
+
+
 /* --- Footer --- */
 .site-footer-bottom {
     background-color: var(--bg-color); /* White footer bg */
@@ -1910,138 +2028,7 @@ h3 { font-size: 1.25rem; font-weight: 600;}
     transform: translateY(-2px);
 }
 
-/* Countdown Warning Section - Redesigned for Maximum Impact */
-.countdown-warning-section {
-    background: linear-gradient(135deg, #ff3a3a 0%, #ff7a3a 100%); /* Urgent gradient */
-    color: white;
-    padding: 0.75rem 1rem;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 1.5rem;
-    text-align: center;
-    width: 100%;
-    box-shadow: 0 4px 12px rgba(255, 58, 58, 0.3);
-    position: relative;
-    overflow: hidden;
-    animation: slideDownBanner 0.5s ease-out forwards, pulse 2s infinite;
-    opacity: 0;
-    transform: translateY(-100%);
-}
 
-@keyframes pulse {
-    0% { box-shadow: 0 0 0 0 rgba(255, 58, 58, 0.7); }
-    70% { box-shadow: 0 0 0 10px rgba(255, 58, 58, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(255, 58, 58, 0); }
-}
-
-@keyframes slideDownBanner {
-    from {
-        opacity: 0;
-        transform: translateY(-100%);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.countdown-container {
-    /* Styles for the timer part */
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.countdown-title {
-    font-size: 1rem;
-    font-weight: 700;
-    color: white;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin: 0;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
-    display: none; /* Hide the 'LIMITED TIME' title for brevity */
-}
-
-.timer-display {
-    display: flex;
-    gap: 0.5rem; /* Reduced gap */
-    align-items: baseline;
-}
-
-.time-unit {
-    display: flex;
-    flex-direction: row; /* Display horizontally */
-    align-items: baseline;
-    gap: 0.25rem;
-}
-
-.time-value {
-    font-size: 1.1rem; /* Smaller font size */
-    font-weight: 700;
-    color: var(--accent-text-color);
-    line-height: 1;
-}
-
-.time-label {
-    font-size: 0.7rem; /* Smaller font size */
-    color: var(--accent-text-color);
-    text-transform: uppercase;
-    /* margin-top: 0; Remove top margin */
-}
-
-.time-separator {
-    font-size: 1rem; /* Smaller font size */
-    color: var(--accent-text-color);
-    line-height: 1;
-    /* padding-bottom: 0; Remove padding */
-}
-
-.warning-text-block {
-    /* max-width: 600px; Remove max-width */
-    background-color: transparent; /* Make background transparent */
-    padding: 0; /* Remove padding */
-    /* border-radius: 8px; Remove border-radius */
-    box-shadow: none; /* Remove box-shadow */
-    text-align: left;
-    color: var(--accent-text-color);
-    line-height: 1.4; /* Adjust line height */
-    font-size: 0.9rem; /* Adjust font size */
-}
-
-.warning-text-block p {
-    margin-bottom: 1rem;
-}
-
-.warning-text-block p:last-child {
-    margin-bottom: 0;
-}
-
-@media (max-width: 768px) {
-    .countdown-warning-section {
-        flex-direction: column; /* Stack vertically on smaller screens */
-        gap: 0.5rem;
-        padding: 0.5rem 1rem;
-        text-align: center;
-    }
-    .warning-text-block {
-        text-align: center;
-    }
-    .time-value {
-        font-size: 1rem;
-    }
-    .time-separator {
-        font-size: 0.9rem;
-    }
-    .time-label {
-        font-size: 0.65rem;
-    }
-    .timer-display {
-        gap: 0.4rem;
-    }
-}
 
 /* Remove redundant smaller screen adjustments as 768px covers it */
 /* @media (max-width: 480px) { ... } */
