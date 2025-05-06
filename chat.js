@@ -200,7 +200,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <li>Click the 'Buy Now' or 'purchase now' button on the website, or use this secure link: <a href="https://rzp.io/rzp/9LUqtNBe" target="_blank" style="color: var(--accent-color); text-decoration: underline;">Purchase Guide (₹999)</a></li>
                 <li>You'll be taken to our secure Razorpay gateway.</li>
                 <li>Complete the payment using UPI, Credit/Debit Card, Net Banking, or Wallets.</li>
-                <li>After successful payment, you'll instantly receive an email with the download link for the PDF guide.</li>
+                <li>After successful payment, you'll instantly receive a download link for the PDF .</li>
             </ol>
             Make sure to enter your email address correctly!`;
             isHTMLResponse = true;
