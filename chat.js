@@ -157,11 +157,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // --- Core Product Information ---
         else if (/\b(what is this|about.*product|about.*guide|tell me about|what do you sell|explain.*hope jee)\b/.test(lowerMessage)) {
-            response = `Hope JEE offers an <strong>AI-Powered JEE Pattern Guide</strong>. It's a study material delivered as a <strong>PDF</strong>. We use AI to analyze over 10 years of past JEE papers to identify recurring question patterns and high-probability topics. The goal is to help you focus your study efforts more effectively.`;
+            response = `Hope JEE offers an <strong>AI-Powered JEE Pattern Guide</strong>. It's a study material delivered as a <strong>PDF</strong>. We use AI to analyze over 20 years of past JEE papers to identify recurring question patterns and high-probability topics. The goal is to help you focus your study efforts more effectively.`;
             isHTMLResponse = true;
         }
         else if (/\b(how.*work|ai work|pattern.*analysis|prediction method|accuracy.*explained)\b/.test(lowerMessage)) {
-            response = `Our AI system processes historical JEE question papers (10+ years data, focused analysis on recent 3-5 years). It identifies statistical trends in: <br>
+            response = `Our AI system processes historical JEE question papers (20+ years data, focused analysis on recent 3-5 years). It identifies statistical trends in: <br>
             <ul>
                 <li><strong>Topic Distribution:</strong> Which subjects/topics appear more frequently.</li>
                 <li><strong>Question Patterns:</strong> Common structures or types of questions asked.</li>
