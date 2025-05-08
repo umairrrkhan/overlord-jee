@@ -113,7 +113,55 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
 }
 
-h1 { font-size: 4.5rem; letter-spacing: -0.03em; font-weight: 700; }
+h1 { 
+    font-size: 4.5rem; 
+    letter-spacing: -0.03em; 
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+}
+
+/* Dynamic Word Animation */
+.dynamic-word {
+  display: inline-block;
+  position: relative;
+  background: linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #FF8C00 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  transform-origin: 50% 50%; /* Adjusted for better visual centering of rotation */
+}
+
+.jee-highlight {
+  position: relative;
+  display: inline-block;
+  padding: 0 0.5rem;
+}
+
+
+@keyframes slideDownOut {
+  0% {
+    transform: translateY(0) rotateX(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(30px) rotateX(-90deg);
+    opacity: 0;
+  }
+}
+
+@keyframes slideUpIn {
+  0% {
+    transform: translateY(-30px) rotateX(90deg);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0) rotateX(0deg);
+    opacity: 1;
+  }
+}
 
 /* Gradient Text Effect */
 .gradient-text {
@@ -216,18 +264,14 @@ h3 { font-size: 1.25rem; font-weight: 600;}
 
 /* --- Header --- */
 .site-header {
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
     z-index: 1000;
-    width: 100%;
-    padding: 1.2rem 0; /* Adjust initial padding */
-    background-color: rgba(255, 255, 255, 0.8); /* Light background with blur */
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border-color);
-    transition: all 0.25s ease-in-out; /* Slightly faster transition */
-    transform: translateY(0);
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06); /* Softer initial shadow */
+    background-color: transparent;
+    transition: all 0.3s ease;
+    padding: 1.5rem 0;
 }
 
 .site-header::after {
@@ -236,24 +280,24 @@ h3 { font-size: 1.25rem; font-weight: 600;}
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 3px; /* Make pattern border slightly bolder */
-    background: var(--accent-pattern);
-    opacity: 1; /* Make it solid */
+    height: 3px;
+    opacity: 1;
 }
 
-.site-header.scroll-down {
-    transform: translateY(-100%);
-}
 
-/* Header shrink effect on scroll */
+
 .site-header.scrolled {
-    padding: 0.5rem 0; /* Tighter scrolled padding */
-    background-color: rgba(255, 255, 255, 0.98); /* Almost opaque */
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    background-color: transparent;
 }
 
 .site-header.scrolled .navbar {
-     padding: 0 2rem; /* Reduce padding when scrolled */
+    max-width: 75%; /* Navbar is narrower than the main header */
+    margin: 0.5rem auto; /* Top/bottom margin, and auto for horizontal centering */
+    padding: 0.6rem 1.5rem; /* Padding inside the navbar */
+    background-color: var(--bg-color); /* Navbar background, can be different */
+    border-radius: 50px; /* "Hot dog" shape */
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1); /* Shadow for the navbar */
+    border: 1px solid var(--border-color);
 }
 
 .site-header.scrolled .brand {
@@ -276,7 +320,7 @@ h3 { font-size: 1.25rem; font-weight: 600;}
     align-items: center;
     max-width: 1300px;
     margin: 0 auto;
-    padding: 0 2.5rem; /* More horizontal padding */
+    padding: 0 1.5rem; /* Adjusted horizontal padding */
 }
 
 .brand {
@@ -415,6 +459,7 @@ h3 { font-size: 1.25rem; font-weight: 600;}
     background-color: var(--bg-color);
     position: relative;
     overflow: hidden;
+    transition: all 0.3s ease;
 }
 
 .hero-section::before {
@@ -431,6 +476,51 @@ h3 { font-size: 1.25rem; font-weight: 600;}
 .hero-section > * {
     position: relative;
     z-index: 1;
+}
+
+.hero-section h1 {
+    max-width: 900px;
+    margin-bottom: 1.5rem; /* Space below H1 */
+    font-size: 4rem;
+    line-height: 1.1;
+    transition: transform 0.3s ease;
+}
+
+.hero-section .subtitle {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto 3rem; /* Space below subtitle */
+    color: var(--text-color-darker);
+    line-height: 1.7;
+}
+
+.hero-section:hover h1 {
+    transform: translateY(-10px);
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 15vh 1rem 10vh;
+        min-height: 100vh; /* Ensure full viewport height for vertical centering */
+    }
+    .hero-section h1 {
+        font-size: 2.5rem;
+        line-height: 1.2;
+        margin-bottom: 1rem;
+    }
+    .hero-section .subtitle {
+        font-size: 0.95rem;
+        margin-bottom: 2rem;
+        line-height: 1.6;
+    }
+    .hero-buttons {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    .cta-button {
+        min-width: 100%;
+        padding: 0.8rem 1.5rem;
+    }
 }
 
 .update-banner {
