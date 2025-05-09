@@ -189,6 +189,146 @@ h1 {
     }
 }
 
+/* Comparison Table Styles */
+.comparison-section {
+    background-color: var(--primary-light);
+    padding: 3rem 1.5rem;
+    text-align: center;
+}
+
+.comparison-section h2 {
+    color: var(--text-color-light);
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.comparison-section .subtitle {
+    color: var(--text-color-darker);
+    font-size: 1.1rem;
+    margin-bottom: 2.5rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.comparison-table-container {
+    overflow-x: auto;
+    margin-top: 2rem;
+    background-color: var(--bg-color);
+    border-radius: 8px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+    padding: 1.5rem;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px; /* Ensures table is scrollable on small screens */
+}
+
+thead {
+    background-color: var(--secondary-light); /* Light grey for header */
+}
+
+th, td {
+    padding: 1rem 1.25rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-color);
+}
+
+th {
+    font-weight: 600;
+    color: var(--text-color-light); /* Darker text for table headers */
+    font-size: 1.05rem;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+tbody tr:nth-child(even) {
+    background-color: var(--primary-light); /* Subtle striping for rows */
+}
+
+tbody tr:hover {
+    background-color: var(--secondary-light); /* Hover effect for rows */
+}
+
+.check-mark,
+.cross-mark {
+    font-size: 1.5rem;
+    display: inline-block;
+}
+
+.check-mark {
+    color: #2ecc71; /* Green for check marks */
+}
+
+.cross-mark {
+    color: #e74c3c; /* Red for cross marks */
+}
+
+/* Responsive adjustments for the table */
+@media (max-width: 768px) {
+    .comparison-section {
+        padding: 2rem 1rem;
+    }
+    .comparison-section h2 {
+        font-size: 1.8rem;
+    }
+    .comparison-section .subtitle {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+    
+    .comparison-table-container {
+        padding: 0.5rem;
+        margin: 0 -1rem;
+        width: calc(100% + 2rem);
+    }
+    
+    table {
+        min-width: 100%;
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    th, td {
+        padding: 0.75rem 0.5rem;
+        font-size: 0.85rem;
+        min-width: 120px;
+    }
+    
+    .check-mark,
+    .cross-mark {
+        font-size: 1.1rem;
+    }
+    
+    /* Add visual indicator for scrollable tables */
+    .comparison-table-container {
+        position: relative;
+    }
+    
+    .comparison-table-container::after {
+        content: "→";
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--accent-color);
+        font-size: 1.5rem;
+        opacity: 0.7;
+        animation: bounceRight 1.5s infinite;
+    }
+    
+    @keyframes bounceRight {
+        0%, 100% { transform: translateX(0) translateY(-50%); }
+        50% { transform: translateX(5px) translateY(-50%); }
+    }
+}
+
 /* Dynamic Word Animation */
 .dynamic-word {
   display: inline-block;
@@ -575,7 +715,7 @@ h3 { font-size: 1.25rem; font-weight: 600;}
         min-height: 85vh;
     }
     .hero-section h1 {
-        font-size: 1.7rem;
+        font-size: 2.7rem;
         line-height: 1.2;
         margin-top: 5rem;
         margin-bottom: 1rem;
