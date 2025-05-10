@@ -13,7 +13,7 @@ import {
 // Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyDy230uiSkjWuRdCmn1_0S-JyNmNg-XaMo",
-  authDomain: "awesome-9ddc4.firebaseapp.com",
+  authDomain: "hopejee.shop",
   projectId: "awesome-9ddc4",
   storageBucket: "awesome-9ddc4.firebasestorage.app",
   messagingSenderId: "1057550111061",
