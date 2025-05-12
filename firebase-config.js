@@ -9,6 +9,7 @@ import {
     signOut,
     onAuthStateChanged as firebaseOnAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+import { getFunctions, httpsCallable } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-functions.js";
 
 // Firebase configuration
 const firebaseConfig = {
@@ -24,6 +25,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
+const functions = getFunctions(app);
 const googleProvider = new GoogleAuthProvider();
 
 // Simple helper to handle authentication responses
@@ -111,3 +113,6 @@ export const onAuthStateChanged = (callback) => {
 export const getCurrentUser = () => {
   return auth ? auth.currentUser : null;
 };
+
+// Export Firebase services
+export { app, auth, functions, httpsCallable, googleProvider };

@@ -5,22 +5,8 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-    const testimonials = document.querySelectorAll('.testimonial');
-    const columns = document.querySelectorAll('.testimonial-column');
-    
-    // Calculate equal distribution
-    const perColumn = Math.ceil(testimonials.length / columns.length);
-    
-    // Distribute testimonials evenly
-    columns.forEach((col, i) => {
-        col.innerHTML = '';
-        const start = i * perColumn;
-        const end = Math.min(start + perColumn, testimonials.length);
-        
-        for (let j = start; j < end; j++) {
-            col.appendChild(testimonials[j]);
-        }
-    });
+    // Basic testimonial slider initialization
+    // All animation is now handled by CSS
 });
 
 // function initTestimonialAnimation() { ... } // Removed old function

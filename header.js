@@ -51,6 +51,5 @@ window.addEventListener('scroll', handleScroll, { passive: true });
 
 // Check scroll position on page load
 handleScroll();
-
 // Add resize event listener to handle viewport changes
 window.addEventListener('resize', handleScroll, { passive: true });

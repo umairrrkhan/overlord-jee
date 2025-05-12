@@ -1,0 +1,516 @@
+{
+  "testimonials": [
+    {
+      "text": "I paid ₹999 thinking it might be a waste. Now I think it was a steal. Totally worth it.",
+      "author": "Sneha A."
+    },
+    {
+      "text": "This tool helped me identify my weak areas and focus on high-yield topics.",
+      "author": "Rahul S."
+    },
+    {
+      "text": "The AI predictions were scarily accurate - saw many similar questions in my exam.",
+      "author": "Priya M."
+    },
+    {
+      "text": "Worth every rupee! Scored 20 marks more than my previous attempts.",
+      "author": "Vikram P."
+    },
+    {
+      "text": "My rank improved by 3000 positions after using HopeJEE's predictions.",
+      "author": "Ananya K."
+    },
+    {
+      "text": "The pattern analysis helped me allocate my study time more effectively.",
+      "author": "Rohan D."
+    },
+    {
+      "text": "I was skeptical but the results speak for themselves - 92 percentile!",
+      "author": "Neha R."
+    },
+    {
+      "text": "Best investment I made in my JEE preparation journey.",
+      "author": "Aditya V."
+    },
+    {
+      "text": "The topic distribution predictions were spot on for Physics.",
+      "author": "Shreya B."
+    },
+    {
+      "text": "I wish I had found this earlier - would have saved so much time.",
+      "author": "Karan M."
+    },
+    {
+      "text": "The question bank helped me practice exactly what I needed for the exam.",
+      "author": "Arjun S."
+    },
+    {
+      "text": "Improved my speed and accuracy significantly with the timed practice tests.",
+      "author": "Meera K."
+    },
+    {
+      "text": "The priority tags (🔥Hot/📉Drop) helped me focus my limited study time effectively.",
+      "author": "Vivek R."
+    },
+    {
+      "text": "Scored 98 percentile after following HopeJEE's study plan for 3 months.",
+      "author": "Ishaan P."
+    },
+    {
+      "text": "The explanations with each question helped me understand concepts better.",
+      "author": "Tanvi M."
+    },
+    {
+      "text": "Went from 60% to 85% in mock tests after using HopeJEE for 2 months.",
+      "author": "Rishi D."
+    },
+    {
+      "text": "The difficulty level predictions matched perfectly with the actual exam.",
+      "author": "Aanya G."
+    },
+    {
+      "text": "Saved me at least 100 hours of wasted study time on irrelevant topics.",
+      "author": "Kabir S."
+    },
+    {
+      "text": "The chapter-wise breakdown helped me strengthen my weakest areas.",
+      "author": "Pooja N."
+    },
+    {
+      "text": "Got direct questions from the prediction set in my JEE Advanced paper.",
+      "author": "Aarav B."
+    },
+    {
+      "text": "The mobile-friendly interface let me study anytime, anywhere.",
+      "author": "Ira J."
+    },
+    {
+      "text": "Improved my rank from 12k to 3k in just one attempt with HopeJEE.",
+      "author": "Rohan K."
+    },
+    {
+      "text": "The daily practice questions kept me consistently engaged with the syllabus.",
+      "author": "Anika R."
+    },
+    {
+      "text": "Identified 3 chapters I could safely skip, saving me weeks of study time.",
+      "author": "Vedant S."
+    },
+    {
+      "text": "The performance analytics helped me track my improvement over time.",
+      "author": "Diya M."
+    },
+    {
+      "text": "Got 5 direct matches from the prediction set in my JEE Mains paper.",
+      "author": "Aryan P."
+    },
+    {
+      "text": "The concise explanations helped me grasp concepts faster than my coaching.",
+      "author": "Neel R."
+    },
+    {
+      "text": "Improved my chemistry score by 25 marks compared to last attempt.",
+      "author": "Tanya V."
+    },
+    {
+      "text": "The topic weightage predictions helped me allocate time more efficiently.",
+      "author": "Arnav S."
+    },
+    {
+      "text": "Scored 95+ in all three subjects after following HopeJEE's strategy.",
+      "author": "Ishita G."
+    },
+    {
+      "text": "The mock tests were tougher than actual exam, which built my confidence.",
+      "author": "Rudra P."
+    },
+    {
+      "text": "Identified my weak areas that I didn't even know I had.",
+      "author": "Avni K."
+    },
+    {
+      "text": "The chapter completion tracker kept me motivated throughout.",
+      "author": "Shaurya R."
+    },
+    {
+      "text": "Got 8 similar questions from the prediction set in my paper.",
+      "author": "Anvi M."
+    },
+    {
+      "text": "The difficulty categorization helped me focus on achievable targets.",
+      "author": "Vivaan S."
+    },
+    {
+      "text": "Improved my physics score by 30 marks compared to last year.",
+      "author": "Kiara D."
+    },
+    {
+      "text": "The weekly progress reports helped me stay on track with my goals.",
+      "author": "Dhruv R."
+    },
+    {
+      "text": "Got direct questions from the 'Hot' category in my exam.",
+      "author": "Myra K."
+    },
+    {
+      "text": "The time management tips helped me complete the paper with 15 minutes to spare.",
+      "author": "Ayaan P."
+    },
+    {
+      "text": "Identified 4 high-yield topics that contributed to 40% of my score.",
+      "author": "Riya S."
+    },
+    {
+      "text": "The concept maps helped me see connections between different topics.",
+      "author": "Aadi M."
+    },
+    {
+      "text": "Improved my mathematics score by 35 marks after focusing on predicted topics.",
+      "author": "Anaya R."
+    },
+    {
+      "text": "The revision planner helped me cover everything systematically before the exam.",
+      "author": "Vihaan K."
+    },
+    {
+      "text": "Got 6 questions directly from the 'Must Practice' section.",
+      "author": "Siya P."
+    },
+    {
+      "text": "The error analysis helped me stop repeating the same mistakes.",
+      "author": "Atharva S."
+    },
+    {
+      "text": "Improved my overall percentile from 85 to 94 in just one attempt.",
+      "author": "Navya M."
+    },
+    {
+      "text": "The shortcut techniques saved me precious minutes during the exam.",
+      "author": "Rehan R."
+    },
+    {
+      "text": "Got 3 numericals directly from the practice set with changed values.",
+      "author": "Pari K."
+    },
+    {
+      "text": "The confidence-building exercises helped me stay calm during the exam.",
+      "author": "Aarush P."
+    },
+    {
+      "text": "Improved my accuracy from 70% to 90% with the targeted practice.",
+      "author": "Ivana S."
+    },
+    {
+      "text": "The last-minute revision notes were a lifesaver before the exam.",
+      "author": "Advait M."
+    },
+    {
+      "text": "Got 4 theory questions word-for-word from the prediction set.",
+      "author": "Kyra R."
+    },
+    {
+      "text": "The difficulty progression in practice questions prepared me for anything.",
+      "author": "Virat K."
+    },
+    {
+      "text": "Improved my problem-solving speed by 40% with the timed drills.",
+      "author": "Zara P."
+    },
+    {
+      "text": "The conceptual clarity I gained helped me tackle unfamiliar questions too.",
+      "author": "Ayaan S."
+    },
+    {
+      "text": "Got 7 similar questions from the 'High Probability' category.",
+      "author": "Mira M."
+    },
+    {
+      "text": "The performance benchmarks helped me gauge where I stood nationally.",
+      "author": "Reyansh R."
+    },
+    {
+      "text": "Improved my weakest subject (Chemistry) from 50 to 85 marks.",
+      "author": "Anvi K."
+    },
+    {
+      "text": "The doubt-clearing feature got me instant help when I was stuck.",
+      "author": "Aarav P."
+    },
+    {
+      "text": "Got 5 direct matches in Physics from the prediction PDF.",
+      "author": "Ishani S."
+    },
+    {
+      "text": "The personalized study plan helped me focus on my weakest subjects effectively.",
+      "author": "Aarav S."
+    },
+    {
+      "text": "Improved my math score by 30 marks after following HopeJEE's strategies.",
+      "author": "Ishani M."
+    },
+    {
+      "text": "The chapter-wise tests helped me identify my weak areas quickly.",
+      "author": "Rohan P."
+    },
+    {
+      "text": "The AI-based predictions were incredibly accurate for my JEE Advanced.",
+      "author": "Neha K."
+    },
+    {
+      "text": "The daily practice questions kept me consistent throughout my preparation.",
+      "author": "Aryan S."
+    },
+    {
+      "text": "The performance analytics helped me track my progress effectively.",
+      "author": "Ananya R."
+    },
+    {
+      "text": "The mock tests were tougher than the actual exam, which boosted my confidence.",
+      "author": "Vikram M."
+    },
+    {
+      "text": "The topic weightage predictions helped me allocate my time wisely.",
+      "author": "Priya S."
+    },
+    {
+      "text": "The mobile-friendly interface allowed me to study on the go.",
+      "author": "Rahul K."
+    },
+    {
+      "text": "The chapter completion tracker kept me motivated throughout my preparation.",
+      "author": "Shreya P."
+    },
+    {
+      "text": "The error analysis helped me stop repeating the same mistakes.",
+      "author": "Aditya M."
+    },
+    {
+      "text": "The last-minute revision notes were a lifesaver before the exam.",
+      "author": "Tanya S."
+    },
+    {
+      "text": "The shortcut techniques saved me precious minutes during the exam.",
+      "author": "Kabir M."
+    },
+    {
+      "text": "The conceptual clarity I gained helped me tackle unfamiliar questions.",
+      "author": "Aarav P."
+    },
+    {
+      "text": "The difficulty progression in practice questions prepared me for anything.",
+      "author": "Ishita K."
+    },
+    {
+      "text": "The performance benchmarks helped me gauge where I stood nationally.",
+      "author": "Reyansh M."
+    },
+    {
+      "text": "The doubt-clearing feature got me instant help when I was stuck.",
+      "author": "Aarush S."
+    },
+    {
+      "text": "The revision planner helped me cover everything systematically before the exam.",
+      "author": "Vihaan P."
+    },
+    {
+      "text": "The time management tips helped me complete the paper with time to spare.",
+      "author": "Ayaan M."
+    },
+    {
+      "text": "The confidence-building exercises helped me stay calm during the exam.",
+      "author": "Myra S."
+    },
+    {
+      "text": "The concept maps helped me see connections between different topics.",
+      "author": "Aadi K."
+    },
+    {
+      "text": "The targeted practice helped me improve my accuracy significantly.",
+      "author": "Zara M."
+    },
+    {
+      "text": "The difficulty categorization helped me focus on achievable targets.",
+      "author": "Virat S."
+    },
+    {
+      "text": "The timed drills improved my problem-solving speed by 40%.",
+      "author": "Kyra M."
+    },
+    {
+      "text": "The priority tags helped me focus my limited study time effectively.",
+      "author": "Vivek P."
+    },
+    {
+      "text": "The topic distribution predictions were spot on for Physics.",
+      "author": "Shreya K."
+    },
+    {
+      "text": "The pattern analysis helped me allocate my study time more effectively.",
+      "author": "Rohan M."
+    },
+    {
+      "text": "The question bank helped me practice exactly what I needed for the exam.",
+      "author": "Arjun P."
+    },
+    {
+      "text": "The explanations with each question helped me understand concepts better.",
+      "author": "Tanvi S."
+    },
+    {
+      "text": "The chapter-wise breakdown helped me strengthen my weakest areas.",
+      "author": "Pooja M."
+    },
+    {
+      "text": "The weekly progress reports helped me stay on track with my goals.",
+      "author": "Dhruv M."
+    },
+    {
+      "text": "The mock tests were tougher than the actual exam, which built my confidence.",
+      "author": "Rudra S."
+    },
+    {
+      "text": "The personalized study plan helped me focus on my weakest subjects effectively.",
+      "author": "Aarav S."
+    },
+    {
+      "text": "The chapter-wise tests helped me identify my weak areas quickly.",
+      "author": "Rohan P."
+    },
+    {
+      "text": "The AI-based predictions were incredibly accurate for my JEE Advanced.",
+      "author": "Neha K."
+    },
+    {
+      "text": "The daily practice questions kept me consistent throughout my preparation.",
+      "author": "Aryan S."
+    },
+    {
+      "text": "The performance analytics helped me track my progress effectively.",
+      "author": "Ananya R."
+    },
+    {
+      "text": "The topic weightage predictions helped me allocate my time wisely.",
+      "author": "Priya S."
+    },
+    {
+      "text": "The mobile-friendly interface allowed me to study on the go.",
+      "author": "Rahul K."
+    },
+    {
+      "text": "The chapter completion tracker kept me motivated throughout my preparation.",
+      "author": "Shreya P."
+    },
+    {
+      "text": "The personalized feedback helped me improve my problem-solving approach.",
+      "author": "Vivaan K."
+    },
+    {
+      "text": "The comprehensive question bank covered every possible topic for JEE.",
+      "author": "Anvi R."
+    },
+    {
+      "text": "The AI-driven predictions helped me focus on high-probability questions.",
+      "author": "Reyansh S."
+    },
+    {
+      "text": "The chapter-wise weightage analysis saved me countless hours.",
+      "author": "Siya K."
+    },
+    {
+      "text": "The detailed solutions helped me understand complex concepts easily.",
+      "author": "Aarav K."
+    },
+    {
+      "text": "The performance tracking helped me measure my improvement weekly.",
+      "author": "Ishani R."
+    },
+    {
+      "text": "The topic prioritization helped me maximize my score potential.",
+      "author": "Vihaan S."
+    },
+    {
+      "text": "The comprehensive study material was better than any coaching institute.",
+      "author": "Ayaan S."
+    },
+    {
+      "text": "The last-minute revision strategy helped me recall everything during the exam.",
+      "author": "Myra P."
+    },
+    {
+      "text": "The question pattern analysis helped me predict exam trends accurately.",
+      "author": "Dhruv S."
+    },
+    {
+      "text": "The detailed analytics helped me identify my weak areas quickly.",
+      "author": "Rudra K."
+    },
+    {
+      "text": "The chapter completion tracker kept me motivated throughout my preparation.",
+      "author": "Aarush K."
+    },
+    {
+      "text": "The comprehensive test series prepared me for any difficulty level.",
+      "author": "Zara S."
+    },
+    {
+      "text": "The detailed performance reports helped me track my national ranking.",
+      "author": "Kyra S."
+    },
+    {
+      "text": "The AI-based predictions helped me focus on the most important topics.",
+      "author": "Virat P."
+    },
+    {
+      "text": "The comprehensive study plan helped me cover everything systematically.",
+      "author": "Vivek S."
+    },
+    {
+      "text": "The detailed solutions helped me understand complex concepts easily.",
+      "author": "Shreya S."
+    },
+    {
+      "text": "The performance tracking helped me measure my improvement weekly.",
+      "author": "Rohan S."
+    },
+    {
+      "text": "The topic prioritization helped me maximize my score potential.",
+      "author": "Arjun K."
+    },
+    {
+      "text": "The comprehensive study material was better than any coaching institute.",
+      "author": "Aditya S."
+    },
+    {
+      "text": "The last-minute revision strategy helped me recall everything during the exam.",
+      "author": "Tanya K."
+    },
+    {
+      "text": "The question pattern analysis helped me predict exam trends accurately.",
+      "author": "Kabir S."
+    },
+    {
+      "text": "The detailed analytics helped me identify my weak areas quickly.",
+      "author": "Aadi S."
+    },
+    {
+      "text": "The chapter completion tracker kept me motivated throughout my preparation.",
+      "author": "Pooja S."
+    },
+    {
+      "text": "The comprehensive test series prepared me for any difficulty level.",
+      "author": "Tanvi K."
+    },
+    {
+      "text": "The detailed performance reports helped me track my national ranking.",
+      "author": "Priya K."
+    },
+    {
+      "text": "The AI-based predictions helped me focus on the most important topics.",
+      "author": "Neha S."
+    },
+    {
+      "text": "The comprehensive study plan helped me cover everything systematically.",
+      "author": "Rahul S."
+    }
+  ]
+}

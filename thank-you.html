@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thank You - Hope JEE</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script> <!-- Assuming Font Awesome is used, or remove if not -->
     <style>
         .thank-you-container {
             text-align: center;
@@ -64,16 +65,16 @@
         }
 
         .instructions li {
-            margin-bottom: 0.8rem;
-            padding-left: 1.5rem;
-            position: relative;
+            margin-bottom: 0.5rem;
         }
 
-        .instructions li:before {
-            content: "→";
-            position: absolute;
-            left: 0;
-            color: var(--accent-color);
+        .error-message {
+            color: var(--danger-color, #e74c3c);
+            background-color: rgba(231, 76, 60, 0.1);
+            padding: 1rem;
+            border-radius: 6px;
+            margin-top: 1.5rem;
+            border: 1px solid var(--danger-color, #e74c3c);
         }
     </style>
 </head>
@@ -86,17 +87,10 @@
                 <p class="thank-you-message">
                     Your payment has been successfully processed. You can now download your  PDF.
                 </p>
-                <a href="pdf/hopeJee .pdf" class="download-button" download="JEE-Success-Guide.pdf">
-                    Download Your PDF Guide
-                </a>
-                <div class="instructions">
-                    <h3>Next Steps:</h3>
-                    <ul>
-                        <li>Click the download button above to get your PDF guide</li>
-                        <li>Save the file to your device for offline access</li>
-                        <li>Open the PDF with your preferred PDF reader</li>
-                        <li>Start your enhanced JEE preparation journey!</li>
-                    </ul>
+                <div id="download-status"></div>
+                <button id="manual-download-button" class="download-button">Download Guide</button>
+                <div id="error-container" style="display: none;">
+                    <div class="error-message"></div>
                 </div>
             </div>
         </div>
@@ -105,3 +99,86 @@
 
 </body>
 </html>
+
+    <script type="module">
+        import { functions, httpsCallable, getCurrentUser } from './firebase-config.js';
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const paymentId = urlParams.get('payment_id');
+            const downloadStatusDiv = document.getElementById('download-status');
+            const manualDownloadButton = document.getElementById('manual-download-button');
+            const errorContainer = document.getElementById('error-container');
+
+            if (!paymentId) {
+                downloadStatusDiv.innerHTML = '<p class="thank-you-message">No payment ID found. If you just made a purchase, please check your email for a download link or contact support.</p>';
+                manualDownloadButton.style.display = 'none';
+                return;
+            }
+
+            manualDownloadButton.textContent = 'Processing Download...';
+            manualDownloadButton.disabled = true;
+
+            const currentUser = getCurrentUser();
+            if (!currentUser) {
+                // This page is usually accessed after a redirect where the user was already logged in.
+                // If not, it's an edge case. For simplicity, we'll proceed, but a robust app might re-prompt login.
+                console.warn('User not logged in on thank you page, but proceeding to get download link as paymentId is present.');
+            }
+
+            async function fetchAndTriggerDownload() {
+                try {
+                    manualDownloadButton.textContent = 'Fetching Link...';
+                    manualDownloadButton.disabled = true;
+                    errorContainer.style.display = 'none';
+
+                    const getPdfLinkFunction = httpsCallable(functions, 'getSecurePdfLink');
+                    const linkResult = await getPdfLinkFunction({ paymentId: paymentId });
+                    const downloadUrl = linkResult.data.downloadUrl;
+
+                    if (downloadUrl) {
+                        downloadStatusDiv.innerHTML = '<p class="thank-you-message">Your download link is ready! Click the button if it doesn\'t start automatically.</p>';
+                        manualDownloadButton.textContent = 'Download Guide Now';
+                        manualDownloadButton.disabled = false;
+                        manualDownloadButton.onclick = () => {
+                            const a = document.createElement('a');
+                            a.href = downloadUrl;
+                            a.download = 'HopeJEE_AI_Pattern_Guide.pdf';
+                            document.body.appendChild(a);
+                            a.click();
+                            document.body.removeChild(a);
+                            manualDownloadButton.textContent = 'Download Started';
+                            manualDownloadButton.disabled = true;
+                        };
+                        // Attempt to trigger download automatically once
+                        const autoDownloadLink = document.createElement('a');
+                        autoDownloadLink.href = downloadUrl;
+                        autoDownloadLink.download = 'HopeJEE_AI_Pattern_Guide.pdf';
+                        document.body.appendChild(autoDownloadLink);
+                        autoDownloadLink.click();
+                        document.body.removeChild(autoDownloadLink);
+                        
+                    } else {
+                        throw new Error('Could not retrieve download link.');
+                    }
+                } catch (error) {
+                    console.error('Error getting PDF link on thank-you page:', error);
+                    downloadStatusDiv.innerHTML = ''; // Clear status message
+                    errorContainer.style.display = 'block';
+                    errorContainer.querySelector('.error-message').textContent = `Failed to get download link: ${error.message || 'Unknown error'}. Payment ID: ${paymentId}. Please contact support.`;
+                    manualDownloadButton.textContent = 'Retry Download';
+                    manualDownloadButton.disabled = false;
+                    manualDownloadButton.onclick = fetchAndTriggerDownload; // Allow retry
+                }
+            }
+
+            // Initial attempt to get the download link
+            fetchAndTriggerDownload();
+
+            // Fallback for the manual download button if it was already defined in HTML
+            // and not replaced by the script (though current HTML structure implies it will be)
+            if(manualDownloadButton && !manualDownloadButton.onclick) {
+                 manualDownloadButton.addEventListener('click', fetchAndTriggerDownload);
+            }
+        });
+    </script>
