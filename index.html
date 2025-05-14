@@ -56,6 +56,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="chat.css">
+    <link rel="stylesheet" href="pricing-cards.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <script src="dist/bundle.min.js" defer></script>
@@ -65,6 +66,17 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
     <script src="scroll-animations.js" defer></script>
+    <script src="payment.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const buyButtons = document.querySelectorAll('.price-button');
+    buyButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        HopeJEEPurchase.initiatePayment(this);
+      });
+    });
+  });
+</script>
     
 </head>
 <body>
@@ -170,25 +182,31 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Predictive Questions</td>
+                            <td>Accurate Predictions</td>
                             <td><span class="check-mark">✅</span></td>
                             <td><span class="cross-mark">❌</span></td>
                             <td><span class="cross-mark">❌</span></td>
                         </tr>
                         <tr>
-                            <td>20-Year Data Training</td>
+                            <td>20 Years of JEE Pattern Analysis</td>
                             <td><span class="check-mark">✅</span></td>
                             <td><span class="cross-mark">❌</span></td>
                             <td><span class="cross-mark">❌</span></td>
                         </tr>
                         <tr>
-                            <td>No Fluff, Only Hits</td>
+                            <td>50+ Marks Score Improvement</td>
                             <td><span class="check-mark">✅</span></td>
                             <td><span class="cross-mark">❌</span></td>
                             <td><span class="cross-mark">❌</span></td>
                         </tr>
                         <tr>
-                            <td>₹300 Only (Limited Time)</td>
+                            <td>Time-Saving Focused Prep</td>
+                            <td><span class="check-mark">✅</span></td>
+                            <td><span class="cross-mark">❌</span></td>
+                            <td><span class="cross-mark">❌</span></td>
+                        </tr>
+                        <tr>
+                            <td>Affordable (1/10th Coaching Cost)</td>
                             <td><span class="check-mark">✅</span></td>
                             <td><span class="cross-mark">❌</span></td>
                             <td><span class="check-mark">✅</span></td>
@@ -250,31 +268,47 @@
 
         <!-- Pricing Section -->
         <section id="pricing" class="content-section pricing-section">
-            <p class="social-proof">Already trusted by 1400+ students. Don’t be the last to join the winners.</p>
-            <h2>Get the ai study metarial</h2>
-            <p class="subtitle">Stop guessing, start targeting.</p>
-            <div class="price-card">
-                <div class="price-amount">₹300 <span style="font-size: 0.8em; color: #ff5722;">(Limited Time Offer! Ends May 15, 2025)</span></div>
-                <p class="price-desc">Question Pack + Strategy Notes + Future Updates</p>
-                <div class="data-insights">
-                    <div class="insight-chart">
-                        <svg width="200" height="100" viewBox="0 0 200 100">
-                            <rect x="50" y="30" width="30" height="50" fill="#FFD700" />
-                            <rect x="90" y="10" width="30" height="70" fill="#FFD700" />
-                            <rect x="130" y="25" width="30" height="55" fill="#FFD700" />
-                            <text x="100" y="95" text-anchor="middle" fill="#666" style="font-size: 10px">Topic Distribution*</text>
-                        </svg>
+            <p class="social-proof"> "We helped 1400+ students predict over 70% of JEE Main Paper "<br>
+ "Designed for students scoring between 45–150 looking to jump 50+ marks fast."</p>
+            <h2>Choose Your Competitive Edge</h2>
+            <p class="subtitle">Stop playing roulette - get radar for your JEE prep</p>
+            
+            <div class="pricing-grid">
+                <!-- Smart Prep Tier -->
+                <div class="price-card tier-smart-prep">
+                    <div class="price-header">
+                        <div class="price-tag">₹300 <span class="price-cycle">/ one-time</span></div>
+                        <p class="price-subtext">Built by a <strong>103B AI model</strong> trained on past year toppers' patterns</p>
+                    </div>
+                    <div class="price-body">
+                        <p class="marketing-pitch"><strong>Stop guessing, start predicting.</strong> Get AI-picked questions most likely to come in JEE with 70-85% accuracy.</p>
+                        <ul class="price-features">
+                            <li><i class="fas fa-brain"></i>  AI-Picked Questions most likely to come</li>
+                            <li><i class="fas fa-bullseye"></i>  Focused Topic Prediction for April attempt</li>
+                            <li><i class="fas fa-graduation-cap"></i>  Strategy Sheets to beat guesswork</li>
+                            <li><i class="fas fa-check-circle"></i>  Quick Score Boost without burnout</li>
+                        </ul>
+                        <button class="cta-button secondary price-button">Start Smart Prep</button>
                     </div>
                 </div>
-                <ul class="price-features">
-                    <li><i class="fas fa-brain"></i> AI-Identified Question Patterns* (85% Historical Match Rate)</li>
-                    <li><i class="fas fa-chart-line"></i> High-Probability Topic Predictions* (Based on 2020-2023 Analysis)</li>
-                    <li><i class="fas fa-bullseye"></i> Lab-Tested Pattern Success Rate: 70–85% topic coverage based on internal testing</li>
-                    <li><i class="fas fa-lightbulb"></i> Strategy Notes on how to approach and integrate cross-topic concepts</li>
-                    <li><i class="fas fa-bullseye"></i>No Filler Questions – Every question exists for a reason</li>
-                    <li><i class="fas fa-puzzle-piece"></i>  Designed to help students cut through the noise and focus on what usually matters</li>
-                </ul>
-                <button id="buy-now-button-main" class="cta-button primary price-button">Buy Now (₹300)</button>
+
+                <!-- Elite Ranker Tier -->
+                <div class="price-card tier-elite-ranker recommended">
+                    <div class="price-header">
+                        <div class="price-tag">₹749 <span class="price-cycle">/ one-time</span><span class="original-price"></span></div>
+                        <p class="price-subtext">Powered by a <strong>641B monster model</strong>. For those who aren't here to "just pass."</p>
+                    </div>
+                    <div class="price-body">
+                        <p class="marketing-pitch"><strong>Dominate the exam.</strong> Our most powerful AI delivers topper-level questions and strategies to maximize your rank.</p>
+                        <ul class="price-features">
+                            <li><i class="fas fa-rocket"></i> <strong>Everything in Smart Prep, plus:</strong></li>
+                            <li><i class="fas fa-microscope"></i>  In-depth analysis of trends</li>
+                            <li><i class="fas fa-star"></i>  Exclusive Topper-Level Questions</li>
+                            <li><i class="fas fa-trophy"></i>  Only serious aspirants need apply</li>
+                        </ul>
+                        <button class="cta-button primary price-button">Go Full Topper Mode</button>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -446,164 +480,7 @@
     <script src="header.js"></script>
     <!--terstimodal slider-->
     <script src="testimonial-slider.js"></script>
-    <script type="module">
-        import { auth, functions, httpsCallable, getCurrentUser, onAuthStateChanged } from './firebase-config.js';
-
-        const key_id = 'rzp_live_SfJPUISmzOKxxm'; // Live production key
-        const pdfPrice = 30000; // Amount in paise (₹300.00)
-
-        // Function to handle payment
-        async function initiatePayment(buttonElement) {
-            const originalButtonText = buttonElement.innerHTML;
-            buttonElement.disabled = true;
-            buttonElement.innerHTML = 'Processing...';
-
-            const currentUser = getCurrentUser();
-            // Guest checkout: Login is not required to initiate purchase
-            // if (!currentUser) {
-            //     alert('Please log in or sign up to make a purchase.');
-            //     // Optionally, redirect to auth.html or open a login modal
-            //     // window.location.href = 'auth.html#login';
-            //     buttonElement.disabled = false;
-            //     buttonElement.innerHTML = originalButtonText;
-            //     return;
-            // }
-
-            try {
-                const createOrderFunction = httpsCallable(functions, 'createRazorpayOrder');
-                const result = await createOrderFunction({ amount: pdfPrice, currency: 'INR' });
-                const orderData = result.data;
-
-                if (!orderData || !orderData.orderId) {
-                    throw new Error('Failed to create Razorpay order. No orderId received.');
-                }
-
-                const options = {
-                    key: key_id,
-                    amount: orderData.amount, 
-                    currency: orderData.currency,
-                    name: "Hope JEE",
-                    description: "AI-Powered JEE Pattern PDF",
-                    order_id: orderData.orderId,
-                    handler: async function (response) {
-                        buttonElement.innerHTML = 'Verifying...';
-                        // Payment successful, now get the download link
-                        try {
-                            const getPdfLinkFunction = httpsCallable(functions, 'getSecurePdfLink');
-                            const linkResult = await getPdfLinkFunction({ paymentId: response.razorpay_payment_id });
-                            const downloadUrl = linkResult.data.downloadUrl;
-
-                            if (downloadUrl) {
-                                alert('Payment successful! Your download will start shortly.');
-                                // Create a temporary link and click it to trigger download
-                                const a = document.createElement('a');
-                                a.href = downloadUrl;
-                                a.download = 'HopeJEE_AI_Pattern_Guide.pdf'; // Suggested filename
-                                document.body.appendChild(a);
-                                a.click();
-                                document.body.removeChild(a);
-                                // Redirect to a thank you page or show a success message
-                                window.location.href = 'thank-you.html?payment_id=' + response.razorpay_payment_id;
-                            } else {
-                                throw new Error('Could not retrieve download link.');
-                            }
-                        } catch (error) {
-                            console.error('Error getting PDF link:', error);
-                            alert(`Payment was successful, but there was an issue getting your download link. Payment ID: ${response.razorpay_payment_id}. Please contact support.`);
-                        }
-                        buttonElement.disabled = false;
-                        buttonElement.innerHTML = originalButtonText;
-                    },
-                    prefill: {
-                        name: currentUser ? currentUser.displayName || '' : '',
-                        email: currentUser ? currentUser.email || '' : '',
-                        // contact: '9999999999' // Optional. Consider asking for email on page if guest.
-                    },
-                    notes: {
-                        firebase_uid: currentUser ? currentUser.uid : null // Pass null if guest
-                    },
-                    theme: {
-                        color: "#FFC107" // Accent color
-                    },
-                    modal: {
-                        ondismiss: function(){
-                            console.log('Checkout form closed');
-                            buttonElement.disabled = false;
-                            buttonElement.innerHTML = originalButtonText;
-                        }
-                    }
-                };
-
-                const rzp = new Razorpay(options);
-                rzp.on('payment.failed', function (response){
-                    console.error('Razorpay Payment Failed:', response.error);
-                    alert(`Payment Failed: ${response.error.description} (Reason: ${response.error.reason}, Step: ${response.error.step}). Please try again or contact support if the issue persists.`);
-                    buttonElement.disabled = false;
-                    buttonElement.innerHTML = originalButtonText;
-                });
-                rzp.open();
-            } catch (error) {
-                console.error('Error initiating payment:', error);
-                alert('Could not initiate payment. Please try again later. ' + (error.message || ''));
-                buttonElement.disabled = false;
-                buttonElement.innerHTML = originalButtonText;
-            }
-        }
-
-        // Attach event listeners to all buy buttons
-        // Main pricing section button
-        const mainBuyButton = document.getElementById('buy-now-button-main');
-        if (mainBuyButton) {
-            mainBuyButton.addEventListener('click', function() {
-                initiatePayment(this);
-            });
-        }
-
-        // Other buy buttons (identified by common href or new IDs/classes if you add them)
-        // Example: Update the limited time offer button
-        const limitedTimeBuyLink = document.querySelector('a[href="https://rzp.io/rzp/9LUqtNBe"].cta-button.primary');
-        if (limitedTimeBuyLink && limitedTimeBuyLink.closest('#limited-time')) { // Ensure it's the one in limited-time section
-            const limitedTimeBuyButton = document.createElement('button');
-            limitedTimeBuyButton.innerHTML = limitedTimeBuyLink.innerHTML;
-            limitedTimeBuyButton.className = limitedTimeBuyLink.className;
-            limitedTimeBuyButton.style.cssText = limitedTimeBuyLink.style.cssText; // Copy styles
-            limitedTimeBuyButton.addEventListener('click', function() {
-                initiatePayment(this);
-            });
-            limitedTimeBuyLink.parentNode.replaceChild(limitedTimeBuyButton, limitedTimeBuyLink);
-        }
-
-        // Example: Update the FAQ CTA button
-        const faqCtaLink = document.querySelector('.faq-final-cta a.cta-button.primary');
-        if (faqCtaLink) {
-            const faqCtaButton = document.createElement('button');
-            faqCtaButton.innerHTML = faqCtaLink.innerHTML;
-            faqCtaButton.className = faqCtaLink.className;
-            faqCtaButton.style.cssText = faqCtaLink.style.cssText;
-            faqCtaButton.addEventListener('click', function() {
-                initiatePayment(this);
-            });
-            faqCtaLink.parentNode.replaceChild(faqCtaButton, faqCtaLink);
-        }
-
-        // Handle redirect from Razorpay if payment details are in URL (alternative flow, less common with this setup)
-        // This part is more relevant if you don't handle everything in the Razorpay handler callback
-        // and rely on a redirect page like thank-you.html to fetch the link.
-        // For now, the primary flow is via the handler callback.
-        document.addEventListener('DOMContentLoaded', () => {
-            const urlParams = new URLSearchParams(window.location.search);
-            const paymentId = urlParams.get('razorpay_payment_id');
-            const paymentStatus = urlParams.get('payment_status'); // You might add this from Razorpay redirect
-
-            if (paymentId && window.location.pathname.includes('thank-you.html')) {
-                // This logic is better placed in thank-you.html's script if it's dedicated to this.
-                // For now, we assume thank-you.html will handle its own logic for displaying messages.
-                console.log('Redirected after payment. Payment ID:', paymentId);
-                // You could automatically try to get the download link here if not handled by the main page's handler
-            }
-        });
-
-    </script>
+    <script type="module" src="payment.js"></script>
 
 </body>
 </html>

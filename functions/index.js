@@ -148,10 +148,7 @@ exports.handleRazorpayWebhook = functions.https.onRequest(async (req, res) => {
 
 exports.getSecurePdfLink = functions.https.onCall(async (data, context) => {
   console.log("getSecurePdfLink function invoked with data:", data, "and context:", context);
-  // For guest checkout, authentication is not strictly required to get the PDF link.
-  // We will verify the purchase using the paymentId.
-  // const userId = context.auth ? context.auth.uid : null; // Optional: capture userId if user is logged in, but not used for guest PDF link retrieval
-  const paymentId = data.paymentId; // Expect paymentId from the client
+  const paymentId = data.paymentId;
 
   if (!paymentId) {
     throw new functions.https.HttpsError('invalid-argument', 'The function must be called with a "paymentId" argument.');
@@ -169,11 +166,45 @@ exports.getSecurePdfLink = functions.https.onCall(async (data, context) => {
     const paymentData = paymentDoc.data();
 
     // Check if payment was successful and webhook verified
-    // Add additional checks, e.g., if the user making the request is the one who paid
     if (paymentData.status !== 'captured' || !paymentData.webhookVerified) {
       console.log(`Payment not confirmed or webhook not verified for paymentId: ${paymentId}`);
       throw new functions.https.HttpsError('failed-precondition', 'Payment not confirmed or verification failed.');
     }
+
+    // Check download count (max 3 downloads per payment)
+    if (paymentData.downloadCount >= 3) {
+      throw new functions.https.HttpsError('permission-denied', 'You have reached the maximum download limit (3) for this purchase.');
+    }
+    
+    // Stricter security checks for guest users
+    const maxAge = 3 * 60 * 1000; // 3 minutes for all users
+    
+    if (!paymentData.timestamp || Date.now() - paymentData.timestamp.toDate().getTime() > maxAge) {
+      throw new functions.https.HttpsError('failed-precondition', 'Download links expire after 3 minutes');
+    }
+    
+    if (context.auth && paymentData.userId && paymentData.userId !== context.auth.uid) {
+      throw new functions.https.HttpsError('permission-denied', 'You are not authorized to download this file.');
+    }
+
+    // Generate a unique download token
+    const crypto = require('crypto');
+    const downloadToken = crypto.randomBytes(32).toString('hex');
+    const tokenExpiry = Date.now() + 24 * 60 * 60 * 1000; // 24 hours expiry
+
+    // Update payment record with token info and user ID if available
+    const updateData = {
+      downloadToken,
+      tokenExpiry,
+      downloadCount: admin.firestore.FieldValue.increment(1),
+      updatedAt: admin.firestore.FieldValue.serverTimestamp()
+    };
+    
+    if (context.auth) {
+      updateData.userId = context.auth.uid;
+    }
+    
+    await paymentDoc.ref.update(updateData);
 
     // Check if the user requesting the link is the one who made the payment (optional but recommended)
     // This requires storing userId or email with the payment record and comparing
@@ -198,23 +229,15 @@ exports.getSecurePdfLink = functions.https.onCall(async (data, context) => {
     const fullFileObjectPathForLogging = `projects/_/buckets/${bucket.name}/objects/${file.name}`; // For clearer logging
     console.log(`Checking existence for Storage object: '${file.name}' in bucket '${bucket.name}'. SDK effectively checks a path like: ${fullFileObjectPathForLogging}`);
     const [exists] = await file.exists();
-    console.log(`File '${resolvedPdfPath}' in bucket '${bucket.name}' actually exists (according to SDK): ${exists}`);
-    if (!exists) {
-        console.error(`PDF file NOT FOUND. Searched for: '${resolvedPdfPath}' in bucket '${bucket.name}'. The SDK checked for an object similar to '${fullFileObjectPathForLogging}'. Please meticulously verify the filename (it IS case-sensitive) and ensure it's located at the root of this specific bucket in your Firebase Storage console.`);
-        throw new functions.https.HttpsError('not-found', 'The requested PDF file does not exist. Please verify the filename (case-sensitive) and its location in Firebase Storage.');
-    }
-
-    // Generate a signed URL for the PDF, valid for a short period (e.g., 5 minutes)
-    const signedUrlConfig = {
+    
+    // Generate signed URL with expiration
+    const [downloadUrl] = await file.getSignedUrl({
       action: 'read',
-      expires: Date.now() + 3 * 60 * 1000, // 5 minutes
-      // Optional: Force download with a specific filename
-      responseDisposition: `attachment; filename="${PDF_FILE_NAME}"`
-    };
-
-    const [url] = await file.getSignedUrl(signedUrlConfig);
-    console.log(`Generated signed URL for ${PDF_FILE_PATH}: ${url}`);
-    return { downloadUrl: url };
+      expires: Date.now() + 3 * 60 * 1000, // 3 minutes
+      version: 'v4'
+    });
+    
+    return { downloadUrl, downloadToken };
 
   } catch (error) {
     console.error("Error generating secure PDF link:", error);

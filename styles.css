@@ -462,43 +462,213 @@ tbody tr:nth-child(even) {
 h2 { font-size: 2.5rem; font-weight: 600; letter-spacing: -0.02em;}
 h3 { font-size: 1.25rem; font-weight: 600;}
 
-/* Price Card Styles */
-.price-card {
-    background: #1a1a1a;
-    border-radius: 15px;
-    padding: 2rem;
-    text-align: center;
-    max-width: 500px;
-    margin: 2rem auto;
-    border: 1px solid #333;
-    position: relative;
-}
+/* Pricing Section Styles */
 
-.price-amount {
-    font-size: 3.5rem;
-    font-weight: 700;
-    color: var(--accent-color);
-    margin: 1rem 0;
-}
-
-.price-desc {
-    color: #888;
+.pricing-section .subtitle {
     margin-bottom: 2rem;
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+    margin-top: 2rem;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.price-subtext strong {
+    color: var(--accent-hover-color); /* Use hover color for emphasis */
+    font-weight: 600;
+}
+
+.price-body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    padding-top: 1rem; /* Space above marketing pitch */
+}
+
+.marketing-pitch {
+    font-size: 1rem;
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+    line-height: 1.6; /* Improved readability */
+}
+
+.marketing-pitch strong {
+    color: var(--text-color-light);
+    font-weight: 600;
 }
 
 .price-features {
     list-style: none;
-    margin: 2rem 0;
+    padding: 0;
+    margin-bottom: 2rem;
+    flex-grow: 1;
+    text-align: left; /* Align features to the left */
 }
 
 .price-features li {
-    margin: 1rem 0;
     display: flex;
-    align-items: center;
-    gap: 0.5rem;
+    align-items: flex-start; /* Align icon with first line of text */
+    margin-bottom: 0.85rem; /* Slightly more space between features */
     font-size: 0.95rem;
-    color: #fff;
+    color: var(--text-color);
 }
+
+.price-features li i {
+    color: var(--accent-color);
+    margin-right: 0.85rem; /* More space after icon */
+    font-size: 1.1rem; /* Icon size */
+    margin-top: 0.1em; /* Align icon better with text */
+}
+
+.price-features li strong {
+    color: var(--text-color-light);
+    font-weight: 600;
+}
+
+.price-button {
+    margin-top: auto; /* Pushes button to the bottom */
+    padding: 0.9rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    border-radius: 8px; /* Rounded button */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.price-button.primary {
+    background-color: var(--accent-color);
+    color: var(--accent-text-color);
+}
+.price-button.primary:hover {
+    background-color: var(--accent-hover-color);
+    transform: scale(1.03);
+}
+
+.price-button.secondary {
+    background-color: transparent;
+    color: var(--accent-color);
+    border: 2px solid var(--accent-color);
+}
+.price-button.secondary:hover {
+    background-color: var(--accent-color);
+    color: var(--accent-text-color);
+    transform: scale(1.03);
+}
+
+
+/* Recommended Badge */
+.recommended-badge {
+    background: linear-gradient(135deg, var(--accent-color), var(--accent-hover-color));
+    color: var(--accent-text-color);
+    font-size: 0.85rem;
+    font-weight: 800;
+    padding: 0.6rem 1.5rem;
+    border-radius: 20px 20px 0 0;
+    position: absolute;
+    top: -1px;
+    left: 50%;
+    transform: translateX(-50%) translateY(-100%);
+    box-shadow: 0 -3px 8px rgba(0,0,0,0.1);
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+}
+
+.price-card.recommended {
+    border: 3px solid var(--accent-color);
+    position: relative;
+    background: linear-gradient(145deg, var(--bg-color), rgba(250, 204, 21, 0.05));
+    box-shadow: 0 15px 40px rgba(250, 204, 21, 0.25);
+    transform: translateY(-5px);
+}
+
+/* Specific Tier Styling - Creative Touches */
+.tier-smart-prep {
+    border-left: 4px solid var(--accent-color);
+    background: linear-gradient(145deg, var(--bg-color), rgba(250, 204, 21, 0.05));
+}
+
+.tier-elite-ranker.recommended .price-header {
+    border-image: linear-gradient(to right, var(--accent-color), var(--accent-hover-color)) 1;
+    padding-bottom: 2rem;
+}
+
+.tier-elite-ranker.recommended .price-tag {
+    background: linear-gradient(45deg, var(--accent-color), var(--accent-hover-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-fill-color: transparent;
+}
+
+
+/* Responsive adjustments for pricing cards */
+@media (max-width: 992px) { /* Adjust breakpoint for 2 columns */
+    .pricing-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .pricing-grid {
+        grid-template-columns: 1fr; /* Stack cards on smaller screens */
+        gap: 1.5rem;
+    }
+    .price-card {
+        padding: 1.5rem;
+        margin-bottom: 1.5rem; /* Space between stacked cards */
+    }
+    .recommended-badge {
+        font-size: 0.75rem;
+        padding: 0.4rem 0.8rem;
+    }
+    .price-tag {
+        font-size: 2.4rem;
+    }
+    .price-header h3 {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .price-card {
+        padding: 1.2rem;
+        border-radius: 12px;
+    }
+    .price-tag {
+        font-size: 2.1rem;
+    }
+    .price-header h3 {
+        font-size: 1.25rem;
+    }
+    .marketing-pitch {
+        font-size: 0.9rem;
+    }
+    .price-features li {
+        font-size: 0.85rem;
+    }
+    .price-button {
+        padding: 0.8rem 1.2rem;
+        font-size: 0.9rem;
+    }
+    .recommended-badge {
+        width: calc(100% - 20px); /* Adjust badge width */
+        border-radius: 10px 10px 0 0;
+        left: 10px;
+        transform: translateX(0) translateY(-100%);
+        text-align: center;
+    }
+    .price-card.recommended {
+        padding-top: 2.5rem; /* Make space for internal badge on mobile */
+    }
+}
+
 
 .data-insights {
     margin: 1.5rem 0;
@@ -687,7 +857,24 @@ h3 { font-size: 1.25rem; font-weight: 600;}
     border: none;
     cursor: pointer;
     text-align: center;
-    transition: background-color 0.2s ease, color 0.2s ease, transform 0.1s ease;
+    transition: all 0.2s ease;
+}
+
+.price-button {
+    background: transparent;
+    color: var(--text-color-light);
+    border: 2px solid var(--border-color);
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.price-button:hover {
+    background: var(--accent-color);
+    color: var(--accent-text-color);
+    border-color: var(--accent-color);
+    transform: translateY(-2px);
 }
 .nav-button:active {
     transform: scale(0.96);
@@ -1512,13 +1699,44 @@ h3 { font-size: 1.25rem; font-weight: 600;}
 /* --- Pricing Section --- */
 .price-card {
     background-color: var(--bg-color);
-    border-radius: 12px;
+    border-radius: 16px;
     padding: 2.5rem;
-    max-width: 450px; /* Max width of the card */
-    margin: 0 auto; /* Center the card */
+    width: 100%;
+    max-width: 500px;
+    margin: 0;
     border: 1px solid var(--border-color);
     text-align: center;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.price-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
+.tier-premium {
+    border: 2px solid transparent;
+    background-image: linear-gradient(var(--bg-color), var(--bg-color)), 
+                      linear-gradient(135deg, var(--accent-color) 0%, #ff6b00 100%);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    position: relative;
+}
+
+.tier-premium::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(135deg, var(--accent-color) 0%, #ff6b00 100%);
 }
 
 .price-tag { /* Optional tag */
