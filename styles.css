@@ -1551,17 +1551,17 @@ h3 { font-size: 1.25rem; font-weight: 600;}
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    animation: scrollVertical 30s linear infinite;
+    animation: scrollVertical 15s linear infinite;
     transform-style: preserve-3d;
 }
 
 .testimonial-column:nth-child(2) {
-    animation: scrollVertical 35s linear infinite;
+    animation: scrollVertical 17s linear infinite;
     animation-delay: -5s;
 }
 
 .testimonial-column:nth-child(3) {
-    animation: scrollVerticalReverse 32s linear infinite;
+    animation: scrollVerticalReverse 16s linear infinite;
     animation-delay: -8s;
 }
 
