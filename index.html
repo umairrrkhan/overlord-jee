@@ -235,23 +235,31 @@
                             document.getElementById('testimonial-column-2'),
                             document.getElementById('testimonial-column-3')
                         ];
-                        const testimonials = data.testimonials;
+                        
+                        // Create a Set to track unique testimonials
+                        const uniqueTestimonials = new Set();
+                        const testimonials = data.testimonials.filter(testimonial => {
+                            const key = `${testimonial.text}-${testimonial.author}`;
+                            if(!uniqueTestimonials.has(key)) {
+                                uniqueTestimonials.add(key);
+                                return true;
+                            }
+                            return false;
+                        });
+                        
                         const numTestimonials = testimonials.length;
 
-                        // Distribute testimonials among columns
-                        // To ensure continuous loop, we might need to duplicate testimonials if there are few
-                        // For now, let's distribute them and CSS will handle the looping animation
+                        // Distribute unique testimonials among columns
                         let testimonialIndex = 0;
-                        for (let i = 0; i < Math.max(numTestimonials, 15); i++) { // Ensure enough content for scrolling, e.g. 15 cards minimum
+                        for (let i = 0; i < Math.max(numTestimonials, 15); i++) {
                             const testimonial = testimonials[testimonialIndex % numTestimonials];
                             const testimonialDiv = document.createElement('div');
-                            testimonialDiv.className = 'testimonial'; // Changed from testimonial-card to testimonial to match new CSS
+                            testimonialDiv.className = 'testimonial';
                             testimonialDiv.innerHTML = `
                                 <p class="testimonial-text">"${testimonial.text}"</p>
                                 <p class="testimonial-author">${testimonial.author}<br><span class="testimonial-source">${testimonial.source || ''}</span></p>
                             `;
-                            columns[i % 3].appendChild(testimonialDiv.cloneNode(true)); // Add to current column
-                            columns[i % 3].appendChild(testimonialDiv); // Add a second copy for seamless looping
+                            columns[i % 3].appendChild(testimonialDiv);
                             testimonialIndex++;
                         }
                     })
