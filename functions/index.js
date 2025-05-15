@@ -190,7 +190,7 @@ exports.getSecurePdfLink = functions.https.onCall(async (data, context) => {
     // Generate a unique download token
     const crypto = require('crypto');
     const downloadToken = crypto.randomBytes(32).toString('hex');
-    const tokenExpiry = Date.now() + 24 * 60 * 60 * 1000; // 24 hours expiry
+    const tokenExpiry = Date.now() + 30 * 60 * 1000; // 30 minutes expiry
 
     // Update payment record with token info and user ID if available
     const updateData = {
