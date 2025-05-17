@@ -19,7 +19,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const chatHeader = document.createElement('div');
     chatHeader.className = 'chat-header';
     chatHeader.innerHTML = `
-        <h3>Hope JEE Assistant</h3>
+        <div class="header-info">
+            <div class="header-title">Umair Khan</div>
+            <div class="header-status"><i class="far fa-clock"></i> Within 3 hours</div>
+        </div>
         <button class="close-chat" aria-label="Close Chat"><i class="fas fa-times"></i></button>
     `;
 
@@ -33,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const chatInputContainer = document.createElement('div');
     chatInputContainer.className = 'chat-input-container';
     chatInputContainer.innerHTML = `
-        <input type="text" class="chat-input" placeholder="Ask about the guide..." aria-label="Chat message input">
+        <input type="text" class="chat-input" placeholder="Message..." aria-label="Chat message input">
         <button class="send-button" aria-label="Send Message"><i class="fas fa-paper-plane"></i></button>
     `;
 
@@ -66,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // --- 7. Initial Bot Message ---
-    addBotMessage('Hi there! 👋 I\'m the Hope JEE Assistant. Ask me anything about our AI-powered JEE pattern guide!');
+    addBotMessage('Hi there 👋 How can we help?');
 
     // --- 8. Core Functions ---
 

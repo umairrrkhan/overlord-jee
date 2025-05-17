@@ -76,17 +76,25 @@
 }
 
 .recommended {
-    border: none;
+    border: 3px solid var(--accent-color); /* Stronger border */
+    position: relative; /* Needed for the badge positioning */
+    background: linear-gradient(145deg, var(--bg-color), rgba(250, 204, 21, 0.05)); /* Subtle gradient background */
+    box-shadow: 0 15px 40px rgba(250, 204, 21, 0.25); /* Enhanced shadow */
+    transform: translateY(-5px); /* Slightly lift the card */
 }
 
 .recommended-badge {
+    background: linear-gradient(135deg, var(--accent-color), var(--accent-hover-color)); /* Gradient for badge */
+    color: var(--accent-text-color); /* Dark text on badge */
+    font-size: 0.85rem; /* Slightly larger badge text */
+    font-weight: 800; /* Bolder badge text */
+    padding: 0.6rem 1.5rem; /* More padding */
+    border-radius: 20px 20px 0 0; /* Rounded top corners */
     position: absolute;
-    top: 1rem;
-    right: 1rem;
-    background: #facc15;
-    color: white;
-    padding: 0.25rem 0.75rem;
-    border-radius: 4px;
-    font-size: 0.8rem;
-    font-weight: 600;
+    top: -1px; /* Position above the card */
+    left: 50%;
+    transform: translateX(-50%) translateY(-100%); /* Center and move above */
+    box-shadow: 0 -3px 8px rgba(0,0,0,0.1); /* Shadow for badge */
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
 }

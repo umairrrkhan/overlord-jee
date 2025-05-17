@@ -324,61 +324,7 @@ h1 {
     }
 }
 
-/* Comparison Table Styles */
-.comparison-section {
-    padding: 2rem 1rem;
-    text-align: center;
-}
 
-.comparison-table-container {
-    overflow-x: auto;
-    margin: 1rem 0;
-    background-color: var(--bg-color);
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    min-width: 300px;
-}
-
-th, td {
-    padding: 0.75rem;
-    text-align: left;
-    border-bottom: 1px solid var(--border-color);
-}
-
-th {
-    font-weight: 600;
-    background-color: var(--secondary-light);
-}
-
-tbody tr:nth-child(even) {
-    background-color: var(--primary-light);
-}
-
-.check-mark, .cross-mark {
-    font-size: 1.2rem;
-}
-
-.check-mark {
-    color: #2ecc71;
-}
-
-.cross-mark {
-    color: #e74c3c;
-}
-
-@media (max-width: 768px) {
-    .comparison-section {
-        padding: 1rem 0.5rem;
-    }
-    
-    th, td {
-        padding: 0.5rem;
-        font-size: 0.9rem;
-    }
-}
     
     /* @keyframes bounceRight { - Keep if desired, or remove for less motion
         0%, 100% { transform: translateX(0) translateY(-50%); }
@@ -933,7 +879,7 @@ h3 { font-size: 1.25rem; font-weight: 600;}
 .hero-section h1 {
     max-width: 900px;
     margin-bottom: 1.5rem; /* Space below H1 */
-    font-size: 4rem;
+    font-size: 10rem;
     line-height: 1.1;
     transition: transform 0.3s ease;
 }

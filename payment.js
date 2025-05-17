@@ -3,8 +3,8 @@ import { auth, functions, httpsCallable, getCurrentUser } from './firebase-confi
 
 const key_id = 'rzp_live_SfJPUISmzOKxxm'; // Test key
 const priceMap = {
-    'tier-smart-prep': 30000, // ₹349 in paise
-    'tier-elite-ranker': 74900 // ₹999 in paise
+    'tier-smart-prep': 74900, // ₹349 in paise
+    'tier-elite-ranker': 99900 // ₹999 in paise
 };
 
 // Function to handle payment
