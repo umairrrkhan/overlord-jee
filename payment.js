@@ -3,7 +3,7 @@ import { auth, functions, httpsCallable, getCurrentUser } from './firebase-confi
 
 const key_id = 'rzp_live_SfJPUISmzOKxxm'; // Test key
 const priceMap = {
-    'tier-smart-prep': 74900, // ₹349 in paise
+    'tier-smart-prep': 74900, // ₹749 in paise
     'tier-elite-ranker': 99900 // ₹999 in paise
 };
 
@@ -33,7 +33,7 @@ window.initiatePayment = async function(buttonElement) {
 
     try {
         const createOrderFunction = httpsCallable(functions, 'createRazorpayOrder');
-        const result = await createOrderFunction({ amount: pdfPrice, currency: 'INR' });
+        const result = await createOrderFunction({ amount: pdfPrice, currency: 'INR', priceTier: priceTier });
         const orderData = result.data;
 
         if (!orderData || !orderData.orderId) {

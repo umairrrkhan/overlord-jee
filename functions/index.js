@@ -21,8 +21,14 @@ const razorpay = new Razorpay({
 // TODO: IMPORTANT - Upload your 'hopeJee.pdf' to the root of your Firebase Storage bucket.
 // The project ID is 'awesome-9ddc4', so the bucket is 'awesome-9ddc4.appspot.com'.
 // The path in storage should be 'hopeJee.pdf'.
-const PDF_FILE_PATH = 'hopeJee.pdf'; // Exact path within Firebase Storage (root of bucket, case-sensitive)
-const PDF_FILE_NAME = 'hopeJee.pdf'; // The name the file will have when downloaded
+const PDF_FILE_MAP = {
+  'tier-smart-prep': { path: 'hopeJee mini.pdf', name: 'HopeJEE_AI_Pattern_Guide_Mini.pdf' },
+  'tier-elite-ranker': { path: 'hopeJee.pdf', name: 'HopeJEE_AI_Pattern_Guide_Full.pdf' }
+};
+
+// TODO: IMPORTANT - Upload your 'hopeJee.pdf' and 'hopeJee_mini.pdf' to the root of your Firebase Storage bucket.
+// The project ID is 'awesome-9ddc4', so the bucket is 'awesome-9ddc4.appspot.com'.
+// The paths in storage should be 'hopeJee.pdf' and 'hopeJee_mini.pdf'.
 
 exports.createRazorpayOrder = functions.https.onCall(async (data, context) => {
   // Ensure the user is authenticated if needed, or implement other checks
@@ -37,6 +43,7 @@ exports.createRazorpayOrder = functions.https.onCall(async (data, context) => {
 
   const amount = data.amount; // Amount in paise (e.g., 50000 for INR 500.00)
   const currency = data.currency || "INR";
+  const priceTier = data.priceTier; // Get the price tier
 
   if (!amount || typeof amount !== 'number' || amount <= 0) {
     throw new functions.https.HttpsError('invalid-argument', 'The "amount" argument must be a positive number (in paise).');
@@ -56,6 +63,15 @@ exports.createRazorpayOrder = functions.https.onCall(async (data, context) => {
   try {
     const order = await razorpay.orders.create(options);
     console.log("Razorpay Order Created:", order);
+    // Store order details including price tier in Firestore
+    await admin.firestore().collection("orders").doc(order.id).set({
+      amount: order.amount,
+      currency: order.currency,
+      priceTier: data.priceTier || 'unknown', // Store the price tier
+      createdAt: admin.firestore.FieldValue.serverTimestamp()
+    });
+
+    console.log("Razorpay Order Created and Stored:", order);
     return { orderId: order.id, amount: order.amount, currency: order.currency };
   } catch (error) {
     console.error("Error creating Razorpay order:", error);
@@ -106,6 +122,10 @@ exports.handleRazorpayWebhook = functions.https.onRequest(async (req, res) => {
             const doc = await transaction.get(paymentRef);
             
             if (!doc.exists) {
+              // Retrieve the order details to get the priceTier
+              const orderDoc = await admin.firestore().collection("orders").doc(orderId).get();
+              const orderData = orderDoc.exists ? orderDoc.data() : {};
+
               transaction.set(paymentRef, {
                 orderId,
                 paymentId,
@@ -117,7 +137,8 @@ exports.handleRazorpayWebhook = functions.https.onRequest(async (req, res) => {
                 timestamp: admin.firestore.FieldValue.serverTimestamp(),
                 webhookVerified: true,
                 createdAt: admin.firestore.FieldValue.serverTimestamp(),
-                updatedAt: admin.firestore.FieldValue.serverTimestamp()
+                updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+                priceTier: orderData.priceTier || 'unknown' // Store the price tier
               });
               console.log(`Payment ${paymentId} for order ${orderId} successfully recorded.`);
               
@@ -215,20 +236,30 @@ exports.getSecurePdfLink = functions.https.onCall(async (data, context) => {
 
     const BUCKET_NAME = "awesome-9ddc4.firebasestorage.app"; // Explicitly set, matching firebase-config.js storageBucket
     console.log(`Using explicit bucket name for Firebase Storage: '${BUCKET_NAME}'`);
-    const bucket = admin.storage().bucket(BUCKET_NAME);
+// Reuse the bucket instance declared above
 
     // Ensure PDF_FILE_PATH is just the filename/path within the bucket
-    const resolvedPdfPath = PDF_FILE_PATH.startsWith('gs://') 
-        ? PDF_FILE_PATH.substring(PDF_FILE_PATH.indexOf('/', 5) + 1) 
-        : PDF_FILE_PATH;
-    
-    console.log(`Attempting to access file: '${resolvedPdfPath}' in bucket: '${bucket.name}'. (Using PDF_FILE_PATH constant: '${PDF_FILE_PATH}')`);
-    const file = bucket.file(resolvedPdfPath); // resolvedPdfPath is the path of the file within the bucket
+    const priceTier = paymentData.priceTier || 'unknown';
+    const pdfInfo = PDF_FILE_MAP[priceTier];
+
+    if (!pdfInfo) {
+      console.error(`Unknown price tier ${priceTier} for paymentId: ${paymentId}`);
+      throw new functions.https.HttpsError('internal', 'Could not determine the correct file for this purchase.');
+    }
+
+    // Generate a signed URL for the PDF file
+    const bucket = admin.storage().bucket(BUCKET_NAME);
+    const file = bucket.file(pdfInfo.path);
 
     // Check if file exists
     const fullFileObjectPathForLogging = `projects/_/buckets/${bucket.name}/objects/${file.name}`; // For clearer logging
     console.log(`Checking existence for Storage object: '${file.name}' in bucket '${bucket.name}'. SDK effectively checks a path like: ${fullFileObjectPathForLogging}`);
     const [exists] = await file.exists();
+
+    if (!exists) {
+      console.error(`PDF file not found in storage: ${pdfInfo.path} for price tier ${priceTier}`);
+      throw new functions.https.HttpsError('not-found', 'The requested file is not available.');
+    }
     
     // Generate signed URL with expiration
     const [downloadUrl] = await file.getSignedUrl({
@@ -237,7 +268,8 @@ exports.getSecurePdfLink = functions.https.onCall(async (data, context) => {
       version: 'v4'
     });
     
-    return { downloadUrl, downloadToken };
+    console.log(`Generated signed URL for ${pdfInfo.path}: ${downloadUrl}`);
+    return { downloadUrl: downloadUrl, downloadToken: downloadToken, downloadFileName: pdfInfo.name }; // Return the token and file name as well for client-side validation
 
   } catch (error) {
     console.error("Error generating secure PDF link:", error);
