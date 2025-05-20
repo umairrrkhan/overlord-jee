@@ -21,6 +21,15 @@ window.initiatePayment = async function(buttonElement) {
         return;
     }
     const originalButtonText = buttonElement.innerHTML;
+    // Find the associated terms checkbox
+    const priceCard = buttonElement.closest('.price-card');
+    const termsCheckbox = priceCard ? priceCard.querySelector('.terms-checkbox-input') : null;
+
+    if (termsCheckbox && !termsCheckbox.checked) {
+        alert('Please accept the Terms of Service to proceed.');
+        return;
+    }
+
     buttonElement.disabled = true;
     buttonElement.innerHTML = 'Processing...';
     

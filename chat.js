@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
     chatHeader.className = 'chat-header';
     chatHeader.innerHTML = `
         <div class="header-info">
-            <div class="header-title">Umair Khan</div>
+            <div class="header-title">Hopejee</div>
             <div class="header-status"><i class="far fa-clock"></i> Within 3 hours</div>
         </div>
         <button class="close-chat" aria-label="Close Chat"><i class="fas fa-times"></i></button>
