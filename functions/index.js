@@ -41,9 +41,15 @@ exports.createRazorpayOrder = functions.https.onCall(async (data, context) => {
     throw new functions.https.HttpsError('invalid-argument', 'Request data must be an object containing amount and optional currency.');
   }
 
+  // Verify terms acceptance status is included
+  if (data.termsAccepted === undefined) {
+    throw new functions.https.HttpsError('failed-precondition', 'Terms of Service must be accepted to proceed with payment.');
+  }
+
   const amount = data.amount; // Amount in paise (e.g., 50000 for INR 500.00)
   const currency = data.currency || "INR";
   const priceTier = data.priceTier; // Get the price tier
+  const termsAccepted = data.termsAccepted; // Get terms acceptance status
 
   if (!amount || typeof amount !== 'number' || amount <= 0) {
     throw new functions.https.HttpsError('invalid-argument', 'The "amount" argument must be a positive number (in paise).');

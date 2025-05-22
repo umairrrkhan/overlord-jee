@@ -509,7 +509,7 @@ h3 { font-size: 1.25rem; font-weight: 600;}
 
 /* Recommended Badge */
 .recommended-badge {
-    background: linear-gradient(135deg, var(--accent-color), var(--accent-hover-color));
+    background: var(--accent-color); /* Simplified background */
     color: var(--accent-text-color);
     font-size: 0.85rem;
     font-weight: 800;
@@ -519,36 +519,36 @@ h3 { font-size: 1.25rem; font-weight: 600;}
     top: -1px;
     left: 50%;
     transform: translateX(-50%) translateY(-100%);
-    box-shadow: 0 -3px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 -2px 6px rgba(0,0,0,0.08); /* Simplified shadow */
     letter-spacing: 0.8px;
     text-transform: uppercase;
 }
 
 .price-card.recommended {
-    border: 3px solid var(--accent-color);
-    position: relative;
-    background: linear-gradient(145deg, var(--bg-color), rgba(250, 204, 21, 0.05));
-    box-shadow: 0 15px 40px rgba(250, 204, 21, 0.25);
-    transform: translateY(-5px);
+    border: 2px solid var(--accent-color); /* Simplified border */
+    background: var(--bg-color); /* Simplified background */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); /* Simplified shadow */
+    transform: none; /* Remove transform */
 }
 
 /* Specific Tier Styling - Creative Touches */
 .tier-smart-prep {
-    border-left: 4px solid var(--accent-color);
-    background: linear-gradient(145deg, var(--bg-color), rgba(250, 204, 21, 0.05));
+    border-left: 4px solid var(--accent-color); /* Keep border-left for visual distinction */
+    background: var(--bg-color); /* Simplified background */
 }
 
 .tier-elite-ranker.recommended .price-header {
-    border-image: linear-gradient(to right, var(--accent-color), var(--accent-hover-color)) 1;
-    padding-bottom: 2rem;
+    border-image: none; /* Remove border image */
+    border-bottom: 2px solid var(--accent-color); /* Add a simple border */
+    padding-bottom: 1.5rem; /* Adjust padding */
 }
 
 .tier-elite-ranker.recommended .price-tag {
-    background: linear-gradient(45deg, var(--accent-color), var(--accent-hover-color));
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-fill-color: transparent;
+    background: none; /* Remove gradient background */
+    -webkit-background-clip: unset; /* Reset clip */
+    background-clip: unset; /* Reset clip */
+    -webkit-text-fill-color: var(--text-color-light); /* Use standard text color */
+    text-fill-color: var(--text-color-light); /* Use standard text color */
 }
 
 
@@ -565,10 +565,14 @@ h3 { font-size: 1.25rem; font-weight: 600;}
     .pricing-grid {
         grid-template-columns: 1fr; /* Stack cards on smaller screens */
         gap: 1.5rem;
+        justify-items: center;
+        max-width: 90%;
+        margin: 0 auto;
     }
     .price-card {
         padding: 1.5rem;
         margin-bottom: 1.5rem; /* Space between stacked cards */
+        min-height: auto; /* Remove fixed height */
     }
     .recommended-badge {
         font-size: 0.75rem;
@@ -586,6 +590,9 @@ h3 { font-size: 1.25rem; font-weight: 600;}
     .price-card {
         padding: 1.2rem;
         border-radius: 12px;
+        max-width: 280px; /* Constrain card width on small screens */
+        width: 90%;       /* Allow it to be responsive, up to max-width */
+        /* Centering is handled by 'justify-items: center' on the parent '.pricing-grid' */
     }
     .price-tag {
         font-size: 2.1rem;
@@ -1652,26 +1659,22 @@ h3 { font-size: 1.25rem; font-weight: 600;}
     margin: 0;
     border: 1px solid var(--border-color);
     text-align: center;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05); /* Simplified shadow */
+    transition: none; /* Remove transition */
     position: relative;
     overflow: hidden;
 }
 
 .price-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+    transform: none; /* Remove hover transform */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08); /* Slightly adjusted hover shadow */
 }
 
 .tier-premium {
-    border: 2px solid transparent;
-    background-image: linear-gradient(var(--bg-color), var(--bg-color)), 
-                      linear-gradient(135deg, var(--accent-color) 0%, #ff6b00 100%);
-    background-origin: border-box;
-    background-clip: padding-box, border-box;
+    border: 1px solid var(--accent-color); /* Simplified border */
+    background: var(--bg-color); /* Simplified background */
+    background-image: none; /* Remove gradient background */
+    background-origin: unset; /* Reset origin */
     position: relative;
 }
 
@@ -1682,7 +1685,7 @@ h3 { font-size: 1.25rem; font-weight: 600;}
     left: 0;
     right: 0;
     height: 4px;
-    background: linear-gradient(135deg, var(--accent-color) 0%, #ff6b00 100%);
+    background: var(--accent-color); /* Simplified background */
 }
 
 .price-tag { /* Optional tag */
@@ -1737,14 +1740,16 @@ h3 { font-size: 1.25rem; font-weight: 600;}
 
 .price-button {
     width: 100%; /* Make button full width */
-    background: var(--accent-pattern); /* Pattern on buy button */
+    background: var(--accent-color); /* Simplified background */
     color: var(--accent-text-color);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); /* Simplified shadow */
     border: 1px solid rgba(0, 0, 0, 0.05); 
+    transition: none; /* Remove transition */
 }
 .price-button:hover {
-    background: var(--accent-color); /* Solid on hover */
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    background: var(--accent-hover-color); /* Solid on hover */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12); /* Simplified shadow */
+    transform: none; /* Remove transform */
 }
 
 /* --- Profile Section --- */

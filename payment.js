@@ -42,8 +42,11 @@ window.initiatePayment = async function(buttonElement) {
 
     try {
         const createOrderFunction = httpsCallable(functions, 'createRazorpayOrder');
-        const result = await createOrderFunction({ amount: pdfPrice, currency: 'INR', priceTier: priceTier });
+        console.log('Calling createRazorpayOrder with:', { amount: pdfPrice, currency: 'INR', priceTier: priceTier, termsAccepted: termsCheckbox ? termsCheckbox.checked : false });
+        const result = await createOrderFunction({ amount: pdfPrice, currency: 'INR', priceTier: priceTier, termsAccepted: termsCheckbox ? termsCheckbox.checked : false });
+        console.log('createRazorpayOrder response:', result);
         const orderData = result.data;
+        console.log('Order data:', orderData);
 
         if (!orderData || !orderData.orderId) {
             throw new Error('Failed to create Razorpay order. No orderId received.');
