@@ -64,6 +64,9 @@ exports.createRazorpayOrder = functions.https.onCall(async (data, context) => {
     currency: currency,
     receipt: `receipt_order_${Date.now()}`,
     payment_capture: 1, // Auto capture payment
+    notes: {
+      terms_and_services: "accepted" // Always set terms and services to accepted
+    }
   };
 
   try {

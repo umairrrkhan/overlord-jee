@@ -322,6 +322,126 @@ h1 {
         margin-bottom: 2rem;
         line-height: 1.6;
     }
+
+    /* Mobile styles for Predict The Paper Section */
+    #predict-paper {
+        padding: 2.5rem 1rem !important; /* Reduced padding */
+    }
+
+    #predict-paper h2 {
+        font-size: 1.8rem !important; /* Reduced font size, !important to override inline */
+        margin-bottom: 0.8rem !important;
+    }
+
+    #predict-paper p {
+        font-size: 0.95rem !important; /* Reduced font size for general paragraphs */
+        margin-bottom: 1.2rem !important;
+        line-height: 1.6 !important;
+    }
+
+    #predict-paper p:nth-of-type(2) { /* Targeting the italic paragraph */
+        font-size: 0.85rem !important;
+        margin-bottom: 2rem !important;
+    }
+
+    #predict-paper .cta-button {
+        font-size: 1rem !important; /* Reduced font size */
+        padding: 0.8rem 1.2rem !important; /* Reduced padding */
+        width: 90%; /* Make button wider on mobile */
+        max-width: 300px; /* Max width for the button */
+    }
+
+    /* Mobile styles for FOMO Marketing Section */
+    .fomo-section {
+        padding: 1.5rem 1rem !important; /* Reduced padding, !important to override inline */
+        margin: 1.5rem auto !important; /* Reduced margin */
+        width: 95% !important; /* Slightly wider for mobile */
+    }
+
+    .fomo-section .fomo-messages p {
+        font-size: 0.9rem !important; /* Reduced font size, !important to override inline */
+        line-height: 1.5 !important;
+    }
+
+    .fomo-section .fomo-messages p i {
+        margin-right: 0.4rem !important;
+    }
+
+    /* General adjustments for content sections on mobile */
+    .content-section {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    section.content-section.dark-theme,
+    section.content-section.why-works-section,
+    section.content-section.success-metrics-section,
+    section.content-section.testimonials-section,
+    section.content-section.pricing-section,
+    section.content-section.how-to-buy-section,
+    section.content-section.faq-section {
+        padding-top: 2rem; /* Standardized top/bottom padding for sections */
+        padding-bottom: 2rem;
+    }
+
+
+    /* Pricing grid adjustments */
+    .pricing-grid {
+        grid-template-columns: 1fr !important; /* Stack cards on mobile */
+        gap: 1.5rem !important; /* Reduce gap */
+    }
+
+    .price-card {
+        margin-left: auto !important;
+        margin-right: auto !important;
+        max-width: 350px !important; /* Ensure cards don't get too wide */
+    }
+    
+    /* Testimonial columns adjustments */
+    .testimonial-carousel-container {
+        padding: 0 15px; /* Reduce side padding for carousel container */
+    }
+    .testimonial-columns-container {
+        padding: 0 1rem; /* Add some padding */
+    }
+    .testimonial-columns {
+        flex-direction: column !important; /* Stack columns */
+        align-items: center !important;
+    }
+    .testimonial-column {
+        width: 100% !important; /* Full width for each column's content */
+        max-width: 350px !important; /* Max width for readability */
+        margin-bottom: 0rem !important; /* Remove bottom margin if they are stacked */
+    }
+    .testimonial {
+        margin-bottom: 1rem !important; /* Space between testimonials */
+    }
+
+    /* Footer adjustments */
+    .site-footer-bottom .footer-main-content {
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+    }
+    .site-footer-bottom .footer-tagline p {
+        font-size: 0.9rem;
+    }
+    .site-footer-bottom .footer-links-container {
+        flex-direction: column !important;
+        align-items: center !important;
+        width: 100% !important;
+        margin-top: 1.5rem;
+    }
+    .site-footer-bottom .footer-section.links {
+        margin-top: 1rem !important;
+        width: auto !important; /* Allow them to size naturally */
+    }
+    .site-footer-bottom .footer-section.links ul {
+        padding-left: 0 !important; /* Remove default padding if any */
+        text-align: center !important;
+    }
+    .site-footer-bottom .footer-bottom p {
+        font-size: 0.85rem;
+    }
 }
 
 
@@ -921,6 +1041,126 @@ h3 { font-size: 1.25rem; font-weight: 600;}
         font-size: 0.95rem;
         margin-bottom: 2rem;
         line-height: 1.6;
+    }
+
+    /* Mobile styles for Predict The Paper Section */
+    #predict-paper {
+        padding: 2.5rem 1rem !important; /* Reduced padding */
+    }
+
+    #predict-paper h2 {
+        font-size: 1.8rem !important; /* Reduced font size, !important to override inline */
+        margin-bottom: 0.8rem !important;
+    }
+
+    #predict-paper p {
+        font-size: 0.95rem !important; /* Reduced font size for general paragraphs */
+        margin-bottom: 1.2rem !important;
+        line-height: 1.6 !important;
+    }
+
+    #predict-paper p:nth-of-type(2) { /* Targeting the italic paragraph */
+        font-size: 0.85rem !important;
+        margin-bottom: 2rem !important;
+    }
+
+    #predict-paper .cta-button {
+        font-size: 1rem !important; /* Reduced font size */
+        padding: 0.8rem 1.2rem !important; /* Reduced padding */
+        width: 90%; /* Make button wider on mobile */
+        max-width: 300px; /* Max width for the button */
+    }
+
+    /* Mobile styles for FOMO Marketing Section */
+    .fomo-section {
+        padding: 1.5rem 1rem !important; /* Reduced padding, !important to override inline */
+        margin: 1.5rem auto !important; /* Reduced margin */
+        width: 95% !important; /* Slightly wider for mobile */
+    }
+
+    .fomo-section .fomo-messages p {
+        font-size: 0.9rem !important; /* Reduced font size, !important to override inline */
+        line-height: 1.5 !important;
+    }
+
+    .fomo-section .fomo-messages p i {
+        margin-right: 0.4rem !important;
+    }
+
+    /* General adjustments for content sections on mobile */
+    .content-section {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    section.content-section.dark-theme,
+    section.content-section.why-works-section,
+    section.content-section.success-metrics-section,
+    section.content-section.testimonials-section,
+    section.content-section.pricing-section,
+    section.content-section.how-to-buy-section,
+    section.content-section.faq-section {
+        padding-top: 2rem; /* Standardized top/bottom padding for sections */
+        padding-bottom: 2rem;
+    }
+
+
+    /* Pricing grid adjustments */
+    .pricing-grid {
+        grid-template-columns: 1fr !important; /* Stack cards on mobile */
+        gap: 1.5rem !important; /* Reduce gap */
+    }
+
+    .price-card {
+        margin-left: auto !important;
+        margin-right: auto !important;
+        max-width: 350px !important; /* Ensure cards don't get too wide */
+    }
+    
+    /* Testimonial columns adjustments */
+    .testimonial-carousel-container {
+        padding: 0 15px; /* Reduce side padding for carousel container */
+    }
+    .testimonial-columns-container {
+        padding: 0 1rem; /* Add some padding */
+    }
+    .testimonial-columns {
+        flex-direction: column !important; /* Stack columns */
+        align-items: center !important;
+    }
+    .testimonial-column {
+        width: 100% !important; /* Full width for each column's content */
+        max-width: 350px !important; /* Max width for readability */
+        margin-bottom: 0rem !important; /* Remove bottom margin if they are stacked */
+    }
+    .testimonial {
+        margin-bottom: 1rem !important; /* Space between testimonials */
+    }
+
+    /* Footer adjustments */
+    .site-footer-bottom .footer-main-content {
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+    }
+    .site-footer-bottom .footer-tagline p {
+        font-size: 0.9rem;
+    }
+    .site-footer-bottom .footer-links-container {
+        flex-direction: column !important;
+        align-items: center !important;
+        width: 100% !important;
+        margin-top: 1.5rem;
+    }
+    .site-footer-bottom .footer-section.links {
+        margin-top: 1rem !important;
+        width: auto !important; /* Allow them to size naturally */
+    }
+    .site-footer-bottom .footer-section.links ul {
+        padding-left: 0 !important; /* Remove default padding if any */
+        text-align: center !important;
+    }
+    .site-footer-bottom .footer-bottom p {
+        font-size: 0.85rem;
     }
     .hero-buttons {
         flex-direction: column;
