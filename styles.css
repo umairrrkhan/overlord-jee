@@ -1,4 +1,75 @@
-/* Reset and Base Styles */
+/* Reset and/* Base Styles */
+
+/* Warning Banner Styles */
+.warning-banner {
+    background-color: #fff0f0; /* Lighter pink background */
+    color: #c0392b; /* Slightly softer red text */
+    padding: 12px 20px;
+    border: 1px solid #e74c3c; /* Red border */
+    border-radius: 8px; /* Less rounded corners */
+    text-align: center;
+    margin: 20px auto;
+    max-width: 700px; /* Slightly reduced max width */
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    box-shadow: 0 2px 8px rgba(192, 57, 43, 0.2); /* Softer shadow */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.warning-icon {
+    font-size: 1.1rem;
+    margin-right: 8px;
+    color: #e67e22; /* Orange warning icon color */
+}
+
+.secure-access-link {
+    color: #c0392b; /* Slightly softer red link color */
+    font-weight: bold;
+    text-decoration: underline;
+    margin-left: 5px; /* Add space between text and link */
+}
+
+.secure-access-link:hover {
+    color: #a93226; /* Darker red on hover */
+    text-decoration: none;
+}
+
+/* Responsive adjustments for the warning banner */
+@media (max-width: 768px) {
+    .warning-banner {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+        margin: 15px 10px;
+        flex-direction: column; /* Stack elements vertically */
+        text-align: center;
+    }
+    .warning-icon {
+        margin-right: 0;
+        margin-bottom: 5px; /* Space below icon when stacked */
+    }
+    .secure-access-link {
+        display: inline-block; /* Keep link inline */
+        margin-top: 5px;
+        margin-left: 0; /* Remove left margin when stacked */
+    }
+}
+
+@media (max-width: 480px) {
+    .warning-banner {
+        padding: 8px 10px;
+        font-size: 0.8rem;
+    }
+    .warning-icon {
+        font-size: 1rem;
+    }
+    .secure-access-link {
+         margin-top: 3px;
+    }
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -2729,8 +2800,65 @@ h3 { font-size: 1.25rem; font-weight: 600;}
         height: 60px; /* Adjust fade height */
     }
 
-    .price-card { max-width: 90%; padding: 2rem 1.5rem; }
-    .price-amount { font-size: 3rem; }
+    .pricing-section h2 {
+        font-size: 1.8rem; /* Adjusted from general h2 mobile style */
+    }
+    .pricing-section .subtitle {
+        font-size: 0.95rem; /* Adjusted from general subtitle mobile style */
+        margin-bottom: 2rem;
+    }
+    .pricing-grid {
+        gap: 1.5rem; /* Ensure gap is consistent */
+    }
+    .price-card {
+        max-width: 95%; /* Slightly wider */
+        padding: 1.5rem; /* Adjusted padding */
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .price-card .price-header .price-tag {
+        font-size: 1.5rem; /* Smaller price tag */
+        margin-bottom: 0.5rem;
+    }
+    .price-card .price-header .price-subtext {
+        font-size: 0.85rem; /* Smaller subtext */
+        line-height: 1.4;
+        margin-bottom: 1rem;
+    }
+    .price-card .price-body .marketing-pitch {
+        font-size: 0.9rem; /* Smaller pitch */
+        margin-bottom: 1rem;
+    }
+    .price-card .price-features {
+        gap: 0.6rem; /* Smaller gap between features */
+        margin-bottom: 1.5rem;
+    }
+    .price-card .price-features li {
+        font-size: 0.85rem; /* Smaller feature text */
+        gap: 0.5rem;
+    }
+    .price-card .price-features li i {
+        font-size: 1em; /* Adjust icon size if needed */
+    }
+    .price-card .price-button {
+        padding: 0.8rem 1rem; /* Adjust button padding */
+        font-size: 0.95rem;
+        width: 100%; /* Ensure full width */
+    }
+    .price-card .most-popular-badge {
+        font-size: 0.75rem; /* Smaller badge text */
+        padding: 0.3rem 0.6rem; /* Adjust badge padding */
+        top: -10px; /* Adjust position */
+        right: 10px;
+    }
+    .price-card .terms-checkbox {
+        font-size: 0.8rem; /* Smaller terms text */
+        margin-top: 0.8rem;
+    }
+    .price-card .terms-checkbox label a {
+        font-size: 0.8rem;
+    }
+    .price-amount { font-size: 2.5rem; } /* Adjusted from 3rem */
 
     .footer-content {
         grid-template-columns: 1fr; /* Stack all columns */
