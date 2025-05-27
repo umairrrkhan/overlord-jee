@@ -2622,6 +2622,65 @@ h3 { font-size: 1.25rem; font-weight: 600;}
     }
 }
 
+/* FOMO Timer Banner Styles */
+.fomo-timer-banner {
+    background-color: #ffc107; /* A warning yellow */
+    color: #333;
+    text-align: center;
+    padding: 1rem;
+    margin: 0 auto 2rem auto; /* Centered, with bottom margin */
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    max-width: 800px; /* Limit width */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.fomo-timer-banner p {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fomo-timer-banner .fas {
+    margin-right: 0.75rem;
+    font-size: 1.3rem;
+    color: #d9534f; /* A contrasting red for the icon */
+}
+
+.fomo-timer-banner strong {
+    color: #c9302c; /* Darker red for emphasis */
+}
+
+/* Responsive adjustments for FOMO timer banner */
+@media (max-width: 768px) {
+    .fomo-timer-banner {
+        font-size: 1rem;
+        padding: 0.8rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .fomo-timer-banner .fas {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .fomo-timer-banner {
+        font-size: 0.9rem;
+        padding: 0.7rem;
+    }
+    .fomo-timer-banner p {
+        flex-direction: column; /* Stack text and icon on very small screens */
+        gap: 0.3rem;
+    }
+    .fomo-timer-banner .fas {
+        margin-right: 0;
+        margin-bottom: 0.3rem;
+    }
+}
+
 
 /* --- How to Buy Section --- */
 
