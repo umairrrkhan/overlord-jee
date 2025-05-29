@@ -2622,64 +2622,6 @@ h3 { font-size: 1.25rem; font-weight: 600;}
     }
 }
 
-/* FOMO Timer Banner Styles */
-.fomo-timer-banner {
-    background-color: #ffc107; /* A warning yellow */
-    color: #333;
-    text-align: center;
-    padding: 1rem;
-    margin: 0 auto 2rem auto; /* Centered, with bottom margin */
-    border-radius: 8px;
-    font-size: 1.1rem;
-    font-weight: 500;
-    max-width: 800px; /* Limit width */
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-.fomo-timer-banner p {
-    margin: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.fomo-timer-banner .fas {
-    margin-right: 0.75rem;
-    font-size: 1.3rem;
-    color: #d9534f; /* A contrasting red for the icon */
-}
-
-.fomo-timer-banner strong {
-    color: #c9302c; /* Darker red for emphasis */
-}
-
-/* Responsive adjustments for FOMO timer banner */
-@media (max-width: 768px) {
-    .fomo-timer-banner {
-        font-size: 1rem;
-        padding: 0.8rem;
-        margin-bottom: 1.5rem;
-    }
-
-    .fomo-timer-banner .fas {
-        font-size: 1.2rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .fomo-timer-banner {
-        font-size: 0.9rem;
-        padding: 0.7rem;
-    }
-    .fomo-timer-banner p {
-        flex-direction: column; /* Stack text and icon on very small screens */
-        gap: 0.3rem;
-    }
-    .fomo-timer-banner .fas {
-        margin-right: 0;
-        margin-bottom: 0.3rem;
-    }
-}
 
 
 /* --- How to Buy Section --- */
@@ -2908,22 +2850,40 @@ h3 { font-size: 1.25rem; font-weight: 600;}
     /* .final-cta styles remain the same */
 }
 
-/* Add new styles for Real-time Stats */
-.real-time-stats {
+/* Live Counter Styles */
+.live-counter-container {
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
     text-align: center;
-    margin: 1rem 0 1.5rem 0; /* Space above and below, more below */
-    font-size: 0.85rem;
-    color: #aaa; /* Subtle grey color */
 }
 
-.real-time-stats span {
-    margin: 0 0.75rem; /* Space between the two stats */
-    display: inline-block; /* Allow margins */
+.live-counter-downloads,
+.live-counter-price-hike {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-color-darker);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.real-time-stats i {
-    margin-right: 0.3rem;
-    color: #FFD700; /* Match brand yellow */
+.live-counter-downloads i,
+.live-counter-price-hike i {
+    color: var(--accent-color);
+    margin-right: 0.5rem;
+}
+
+.live-counter-price-hike {
+    color: var(--text-color-light);
+}
+
+/* Responsive adjustments for live counter */
+@media (max-width: 768px) {
+    .live-counter-downloads,
+    .live-counter-price-hike {
+        font-size: 0.9rem;
+    }
 }
 
 .final-cta {
@@ -2931,6 +2891,143 @@ h3 { font-size: 1.25rem; font-weight: 600;}
     width: fit-content;
     margin: 0 auto; /* Center the button */
     margin-top: 1rem; /* Ensure some space from stats if needed */
+}
+
+/* --- AI Process Section --- */
+.ai-process-section {
+    background-color: var(--primary-very-light, #fdfdfd);
+    padding: 5rem 2rem;
+    text-align: center;
+}
+
+.ai-process-section h2 {
+    margin-bottom: 1rem;
+}
+
+.ai-process-section .subtitle {
+    margin-bottom: 4rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.flowchart-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.flowchart-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 150px; /* Fixed width for steps */
+}
+
+.flowchart-icon {
+    font-size: 2.5rem;
+    color: var(--accent-color);
+    margin-bottom: 0.8rem;
+    background-color: var(--bg-color);
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.flowchart-step:hover .flowchart-icon {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+.flowchart-step p {
+    font-size: 0.95rem;
+    color: var(--text-color-darker);
+    font-weight: 500;
+}
+
+.flowchart-arrow {
+    font-size: 2rem;
+    color: var(--text-color-light);
+    align-self: center; /* Vertically center arrows with steps */
+}
+
+/* Responsive adjustments for AI Process Section */
+@media (max-width: 992px) {
+    .flowchart-container {
+        gap: 1rem;
+    }
+    .flowchart-step {
+        width: 130px;
+    }
+    .flowchart-icon {
+        font-size: 2.2rem;
+        width: 60px;
+        height: 60px;
+    }
+    .flowchart-arrow {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .ai-process-section {
+        padding: 4rem 1rem;
+    }
+    .flowchart-container {
+        flex-direction: column; /* Stack steps vertically */
+        gap: 1.5rem; /* Adjust gap for vertical layout */
+    }
+    .flowchart-arrow {
+        transform: rotate(90deg); /* Rotate arrows for vertical flow */
+        margin: 0.5rem 0; /* Adjust margin for rotated arrows */
+    }
+    .flowchart-step {
+        width: 100%; /* Allow steps to take full width */
+        max-width: 250px; /* But cap it for aesthetics */
+    }
+}
+
+@media (max-width: 480px) {
+    .flowchart-icon {
+        font-size: 2rem;
+        width: 55px;
+        height: 55px;
+    }
+    .flowchart-step p {
+        font-size: 0.9rem;
+    }
+}
+
+.report-button {
+    background: transparent;
+    color: var(--accent-color);
+    border: 1px solid var(--accent-color);
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.report-button:hover {
+    background: var(--accent-color);
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .report-button {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.8rem;
+    }
 }
 
 /* --- Responsive Design --- */
@@ -3141,3 +3238,54 @@ h3 { font-size: 1.25rem; font-weight: 600;}
 
 /* Remove redundant smaller screen adjustments as 768px covers it */
 /* @media (max-width: 480px) { ... } */
+
+/* Disclaimer Section Styles */
+.disclaimer-section {
+    background-color: #f8f8f8;
+    padding: 40px 20px;
+    text-align: center;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    margin-top: 50px;
+}
+
+.disclaimer-text {
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.notice-to-coachings {
+    background-color: #fff3cd;
+    border: 1px solid #ffeeba;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 700px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.notice-to-coachings p {
+    font-size: 1.2em;
+    color: #856404;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.notice-to-coachings ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.notice-to-coachings ul li {
+    font-size: 1em;
+    color: #856404;
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+.notice-to-coachings ul li:last-child {
+    margin-bottom: 0;
+}
