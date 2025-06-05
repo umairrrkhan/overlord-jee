@@ -191,6 +191,14 @@ document.addEventListener('DOMContentLoaded', function() {
             response = `No, definitely not. Our guide contains <strong>AI-GENERATED PRACTICE QUESTIONS ONLY</strong> based on observed historical patterns. It does <strong>NOT</strong> contain actual, leaked, or predicted future JEE questions. Any similarity to real exam questions is purely coincidental and based on the AI identifying common educational patterns.`;
             isHTMLResponse = true;
         }
+        else if (/\b(umair khan|razorpay|payment name)\b/.test(lowerMessage)) {
+            response = `The name 'Umair Khan' you see is our verified Razorpay merchant account - this is completely normal and actually GOOD for you because:<br>
+            <ul>
+                <li>✅ <strong>Trusted & Secure</strong>: Razorpay is India's leading payment gateway (used by 8M+ businesses) with bank-level security</li>
+                <li>✅ <strong>100% Safe</strong>: Your card/PayTM/UPI details are fully encrypted and never shared with us</li>
+            </ul>`;
+            isHTMLResponse = true;
+        }
 
         // --- Product Format ---
         else if (/\b(format|what.*get|delivery|pdf|download.*link)\b/.test(lowerMessage)) {

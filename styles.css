@@ -2,53 +2,37 @@
 
 /* Warning Banner Styles */
 .warning-banner {
-    background-color: #1E1E1E; /* Dark background */
-    color: #E0E0E0; /* Light grey text */
-    padding: 10px 20px; /* Adjusted padding */
-    border: 1px solid var(--accent-color, #facc15); /* Yellow border */
-    border-radius: 30px; /* Pill shape */
+    background-color: transparent; /* Transparent background */
+    color: var(--text-color-darker, #666666); /* Footer text color */
+    padding: 15px 20px; /* Adjusted padding */
     text-align: center;
-    margin: 20px auto; /* Adjusted margin & centers the inline-flex block */
-    max-width: fit-content; /* Banner width fits content */
+    margin: 0 auto 15px auto; /* Margin for spacing within footer */
     font-family: 'Inter', sans-serif;
-    font-size: 0.95rem; /* Adjusted font size for a sleeker look */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle dark shadow */
-    display: inline-flex; /* Key for fit-content width and centering */
-    align-items: center;
-    justify-content: center;
+    font-size: 0.85rem; /* Slightly smaller font size */
+    display: block; /* Make it a block element to take full width available */
     transition: all 0.3s ease;
 }
-
-/* .warning-icon, .secure-access-link and :hover styles removed as they are no longer used in the banner */
 
 .warning-highlight {
     color: var(--accent-color, #facc15); /* Yellow highlight */
     font-weight: 600; /* Bold */
-    margin-left: 0.4em; /* Space before "Here's..." */
+    margin-left: 0.4em;
 }
 
-/* Responsive adjustments for the warning banner */
+/* Responsive adjustments for the warning banner in footer */
 @media (max-width: 768px) {
     .warning-banner {
-        padding: 8px 16px; /* Adjusted mobile padding */
-        font-size: 0.9rem; /* Adjusted mobile font size */
-        margin: 15px auto; /* Center with auto margin */
-        overflow-wrap: break-word; /* Ensure long words break */
+        padding: 10px 15px;
+        font-size: 0.8rem;
+        margin-bottom: 10px;
     }
-    /* Responsive styles for .warning-icon and .secure-access-link removed */
 }
 
 @media (max-width: 480px) {
     .warning-banner {
-        padding: 6px 12px; /* Further adjusted mobile padding */
-        font-size: 0.85rem; /* Further adjusted mobile font size */
-        margin: 10px auto; /* Center with auto margin */
-        max-width: 90%; /* Ensure it doesn't get too wide and break lines easily */
-        overflow-wrap: break-word; /* Ensure long words break */
-    }
-    /* Responsive styles for .warning-icon and .secure-access-link removed */
-    .warning-highlight {
-        /* Mobile specific styles for highlight can be added here if needed */
+        padding: 8px 10px;
+        font-size: 0.75rem;
+        margin-bottom: 8px;
     }
 }
 
