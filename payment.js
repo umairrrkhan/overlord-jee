@@ -22,8 +22,8 @@ window.initiatePayment = async function(buttonElement) {
     }
     const originalButtonText = buttonElement.innerHTML;
     // Find the associated terms checkbox
-    const priceCard = buttonElement.closest('.price-card');
-    const termsCheckbox = priceCard ? priceCard.querySelector('.terms-checkbox-input') : null;
+    const priceCardElement = buttonElement.closest('.price-card');
+    const termsCheckbox = priceCardElement ? priceCardElement.querySelector('.terms-checkbox-input') : null;
 
     if (termsCheckbox && !termsCheckbox.checked) {
         alert('Please accept the Terms of Service to proceed.');
@@ -34,8 +34,17 @@ window.initiatePayment = async function(buttonElement) {
     buttonElement.innerHTML = 'Processing...';
     
     // Get price based on button's parent pricing tier
-    const priceTier = buttonElement.closest('.price-card')?.classList?.contains('tier-smart-prep') ? 
-        'tier-smart-prep' : 'tier-elite-ranker';
+    let priceTier;
+    if (priceCardElement.classList.contains('tier-smart-prep')) {
+        priceTier = 'tier-smart-prep';
+    } else if (priceCardElement.classList.contains('tier-elite-ranker')) {
+        priceTier = 'tier-elite-ranker';
+    } else if (priceCardElement.classList.contains('tier-one-rupee')) {
+        priceTier = 'tier-one-rupee';
+    } else {
+        console.error('Unknown price tier for button:', buttonElement);
+        return;
+    }
     const pdfPrice = priceMap[priceTier];
 
     const currentUser = getCurrentUser();

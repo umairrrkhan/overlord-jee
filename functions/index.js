@@ -23,7 +23,8 @@ const razorpay = new Razorpay({
 // The path in storage should be 'hopeJee.pdf'.
 const PDF_FILE_MAP = {
   'tier-smart-prep': { path: 'hopeJee mini.pdf', name: 'HopeJEE_AI_Pattern_Guide_Mini.pdf' },
-  'tier-elite-ranker': { path: 'hopeJee.pdf', name: 'HopeJEE_AI_Pattern_Guide_Full.pdf' }
+  'tier-elite-ranker': { path: 'hopeJee.pdf', name: 'HopeJEE_AI_Pattern_Guide_Full.pdf' },
+  'tier-one-rupee': { path: 'hopejee one.pdf', name: 'HopeJEE_AI_Pattern_Guide_One_Question.pdf' }
 };
 
 // TODO: IMPORTANT - Upload your 'hopeJee.pdf' and 'hopeJee_mini.pdf' to the root of your Firebase Storage bucket.
@@ -143,6 +144,7 @@ exports.handleRazorpayWebhook = functions.https.onRequest(async (req, res) => {
                 email,
                 contact,
                 status: "captured",
+                tosAccepted: "termsAccepted",
                 timestamp: admin.firestore.FieldValue.serverTimestamp(),
                 webhookVerified: true,
                 createdAt: admin.firestore.FieldValue.serverTimestamp(),
