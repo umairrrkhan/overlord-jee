@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Who Made This? - The AI Nerd</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="images/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="chat.css">
+    <link rel="stylesheet" href="pricing-cards.css">
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script src="dist/bundle.min.js" defer></script>
+    <script src="faq.js" defer></script>
+    <script src="modal.js" defer></script>
+    <script src="hero-animation.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <script src="scroll-animations.js" defer></script>
+    <script src="payment.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const buyButtons = document.querySelectorAll('.price-button');
+    buyButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        HopeJEEPurchase.initiatePayment(this);
+      });
+    });
+  });
+</script>
+    
+</head>
+<body>
+    <header class="site-header">
+        <nav class="navbar">
+            <a href="index.html" class="brand">
+                <span class="brand-logo">HJ</span> <!-- Simple Initials Logo -->
+                HopeJEE
+            </a>
+            <div class="nav-links">
+                <a href="#testimonials">Proof</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#how-to-buy">How to Buy</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="auth-buttons">
+                <a href="auth.html#login" class="nav-button login-btn">Login</a>
+                <a href="auth.html#signup" class="nav-button signup-btn">Sign up</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="content-section">
+            <div class="container">
+                <h1>Who Made This Product?</h1>
+                <p>This product was meticulously crafted by <span class="highlight">Umair Khan</span>, known to many as <span class="highlight">The AI Nerd</span>. Driven by a passion for leveraging artificial intelligence to simplify complex challenges, Umair embarked on a mission to <span class="highlight">revolutionize JEE preparation</span>.</p>
+                <p>With a deep understanding of both AI algorithms and the intricacies of the JEE examination, Umair developed HopeJEE to be more than just a study tool. It's a <span class="highlight">strategic partner</span>, designed to <span class="highlight">cut through the noise</span> and focus on what truly matters: <span class="highlight">pattern recognition and high-probability questions</span>.</p>
+                <p>The philosophy behind HopeJEE is simple: <span class="highlight">work smarter, not just harder</span>. By analyzing decades of JEE data, Umair's creation helps students <span class="highlight">identify recurring patterns, predict potential questions, and optimize their study time for maximum impact</span>.</p>
+                <p>While primarily focused on building intelligence, Umair occasionally shares insights and thoughts on social media. You can connect and follow their journey here:</p>
+                <a href="https://x.com/im_umair_khann" target="_blank" class="social-link"><i class="fab fa-twitter"></i> Follow Umair Khan on X</a>
+            </div>
+        </section>
+    </main>
+
+    
+        <div class="footer-accent-bar"></div> <!-- New accent bar -->
+        <div class="footer-main-content">
+            <div class="footer-tagline">
+                <h2>Hope JEE.</h2>
+                <p>Built for the ones who refuse to grind 10 hours a day.</p>
+                <p>HopeJEE is not affiliated with NTA. We use public domain data and machine learning to surface exam trends and prediction patterns. Our goal is to help students prepare smarter, not cheat the system.</p>
+            </div>
+            <div class="footer-links-container">
+                <div class="footer-section links">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#testimonials">Proof</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#how-to-buy">How to Buy</a></li>
+                        <li><a href="contact.html">Contact Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section links">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="ai-nerd.html">Who Made This?</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Hope JEE. Study less. Predict more. Win smarter.</p>
+            <button class="report-button" onclick="alert('Nice try, coaching mafia.')">Report this site</button>
+        </div>
+    </footer>
+
+    <!-- Firebase Authentication -->
+    <script type="module" src="auth.js"></script>
+    <script type="module" src="./firebase-config.js"></script>
+    <!-- chat.js   -->
+    <script src="chat.js"></script>
+    <!-- header-->
+    <script src="header.js"></script>
+    <!--terstimodal slider-->
+    <script src="testimonial-slider.js"></script>
+    <script type="module" src="payment.js"></script>
+
+</body>
+</html>
